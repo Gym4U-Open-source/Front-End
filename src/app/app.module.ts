@@ -11,15 +11,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  {path: "", redirectTo: "home", pathMatch: "full"},
-  {path: "signup", component: SignupComponent},
-]
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'signup', component: SignupComponent },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignupComponent,
-  ],
+  declarations: [AppComponent, SignupComponent],
   imports: [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
@@ -32,6 +29,6 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
