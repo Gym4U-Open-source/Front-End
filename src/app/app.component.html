@@ -40,5 +40,12 @@
       Sign up
     </button>
   </div>
+  <div class="nav-auth" *ngIf="userData.loggedIn">
+    <div>
+      {{ userData.data.name }} {{ userData.data.lastName }} <br />
+      {{ userData.data.userType }}
+    </div>
+    <button (click)="logout()" mat-flat-button color="primary">Log out</button>
+  </div>
 </nav>
 <router-outlet></router-outlet>
