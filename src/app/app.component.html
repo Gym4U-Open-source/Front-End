@@ -5,6 +5,24 @@
   <div routerLink="/" class="nav-item">
     <img src="https://i.ibb.co/WWXTnGH/logo.png" alt="Gym4U" class="img-p" />
   </div>
+  <div class="browser">
+    <mat-icon class="browser-icon">search</mat-icon>
+    <input
+      type="text"
+      class="browser-input"
+      placeholder="Look for posts  ..."
+      [formControl]="control"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let street of filteredStreets | async"
+        [value]="street"
+      >
+        {{ street }}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
 </nav>
 <h1>NO POSTS UPLOAD</h1>
 <router-outlet></router-outlet>
