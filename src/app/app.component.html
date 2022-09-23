@@ -23,6 +23,22 @@
       </mat-option>
     </mat-autocomplete>
   </div>
+  <div class="nav-auth" *ngIf="!userData.loggedIn">
+    <button
+      mat-stroked-button
+      routerLink="/login"
+      class="btn-auth btn-color-signIn"
+    >
+      Sign in
+    </button>
+    <button
+      mat-flat-button
+      routerLink="/signup"
+      color="primary"
+      class="btn-auth btn-color-signUp bg-gradient-to-r"
+    >
+      Sign up
+    </button>
+  </div>
 </nav>
-<h1>NO POSTS UPLOAD</h1>
 <router-outlet></router-outlet>

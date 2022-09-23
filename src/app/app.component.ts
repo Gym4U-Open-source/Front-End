@@ -14,8 +14,12 @@ export class AppComponent  implements OnInit {
   control = new FormControl('');
   streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
   filteredStreets!: Observable<string[]>;
+  userData!: any;
 
   ngOnInit() {
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    console.log(this.userData)
+
     this.filteredStreets = this.control.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),

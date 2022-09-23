@@ -8,14 +8,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
 import { RouterModule, Routes } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "home", pathMatch: "full"},
+  {path: "signup", component: SignupComponent},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
+    SignupComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
