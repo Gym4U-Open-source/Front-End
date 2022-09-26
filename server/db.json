@@ -39,6 +39,24 @@
       "name": "Ranas",
       "custom": true,
       "assetUrl": "https://i.pinimg.com/originals/d0/54/1b/d0541bb653319a56a5d876e3eabb319a.gif"
+    },
+    {
+      "name": "Outbreaker",
+      "category": "Strength",
+      "tag": "Avanzado",
+      "focus": "Arms",
+      "assetUrl": "https://i.pinimg.com/originals/10/4c/5f/104c5f7ea76d834b4a7c730de66cb580.gif",
+      "custom": "true",
+      "id": 3
+    },
+    {
+      "name": "Reverse Plank Leg Raises",
+      "category": "Strength",
+      "tag": "Avanzado",
+      "focus": "Piernas",
+      "assetUrl": "https://i.pinimg.com/originals/37/18/cc/3718cce716d6575a5704156befcd1f07.gif",
+      "custom": "true",
+      "id": 4
     }
   ]
 }

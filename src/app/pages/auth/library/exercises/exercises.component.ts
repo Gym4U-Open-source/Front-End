@@ -66,7 +66,7 @@ export class ExercisesComponent implements OnInit {
         this.totalData = res.length
       },
       error: (err) => {
-        alert('Error while fetching the Records!!');
+        console.log('Error while fetching the Records!!');
       },
     });
   }
@@ -88,11 +88,11 @@ export class ExercisesComponent implements OnInit {
   deleteProduct(id: number) {
     this.api.deleteProduct(id).subscribe({
       next: (res) => {
-        alert('Produc deleted successfully.');
+        console.log('Exercise deleted successfully.');
         this.getAllProducts();
       },
       error: (err) => {
-        alert('Something went while deleting');
+        console.log('Something went while deleting');
       },
     });
   }

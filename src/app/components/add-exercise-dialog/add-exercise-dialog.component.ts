@@ -9,8 +9,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./add-exercise-dialog.component.css'],
 })
 export class AddExerciseDialogComponent implements OnInit {
-  freshnessList = ['Brand new', 'Second hand', 'Refurbished'];
-  productForm!: FormGroup;
+  tagList = ['Principiante', 'Intermedio', 'Avanzado'];
+  exerciseForm!: FormGroup;
   actionBtn: string = 'Save';
 
   constructor(
@@ -21,60 +21,57 @@ export class AddExerciseDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productForm = this.formbuilder.group({
-      productName: ['', Validators.required],
+    this.exerciseForm = this.formbuilder.group({
+      name: ['', Validators.required],
       category: ['', Validators.required],
-      freshness: ['', Validators.required],
-      price: ['', Validators.required],
-      comment: ['', Validators.required],
-      date: ['', Validators.required],
+      tag: ['', Validators.required],
+      focus: ['', Validators.required],
+      assetUrl: ['', Validators.required],
+      custom: ['true', Validators.required],
     });
 
     console.log(this.editData);
     if (this.editData) {
       this.actionBtn = 'Update';
-      this.productForm.controls['productName'].setValue(
-        this.editData.productName
-      );
-      this.productForm.controls['category'].setValue(this.editData.category);
-      this.productForm.controls['freshness'].setValue(this.editData.freshness);
-      this.productForm.controls['price'].setValue(this.editData.price);
-      this.productForm.controls['comment'].setValue(this.editData.comment);
-      this.productForm.controls['date'].setValue(this.editData.date);
+      this.exerciseForm.controls['name'].setValue(this.editData.name);
+      this.exerciseForm.controls['category'].setValue(this.editData.category);
+      this.exerciseForm.controls['tag'].setValue(this.editData.tag);
+      this.exerciseForm.controls['focus'].setValue(this.editData.focus);
+      this.exerciseForm.controls['assetUrl'].setValue(this.editData.assetUrl);
+      this.exerciseForm.controls['custom'].setValue(this.editData.custom);
     }
   }
 
   addProduct() {
     if (!this.editData) {
-      alert('add');
-      if (this.productForm.valid) {
-        this.api.postProduct(this.productForm.value).subscribe({
+      if (this.exerciseForm.valid) {
+        this.api.postProduct(this.exerciseForm.value).subscribe({
           next: (res) => {
-            alert('Product added successfully');
-            this.productForm.reset();
+            this.exerciseForm.reset();
             this.dialogRef.close('save');
           },
           error: () => {
-            alert('Error while adding the product');
+            console.log('Error while adding the exercise');
           },
         });
       }
     } else {
-      alert('update');
+      console.log('update');
       this.updateProduct();
     }
   }
 
   updateProduct() {
-    this.api.updateProduct(this.productForm.value, this.editData.id).subscribe({
-      next: (res) => {
-        alert('Product updated');
-        this.productForm.reset();
-        this.dialogRef.close('update');
-      },
-      error: (err) => {
-        alert('Something went wrong');
-      },
-    });
+    this.api
+      .updateProduct(this.exerciseForm.value, this.editData.id)
+      .subscribe({
+        next: (res) => {
+          this.exerciseForm.reset();
+          this.dialogRef.close('update');
+        },
+        error: (err) => {
+          console.log('Something went wrong');
+        },
+      });
   }
 }

@@ -29,13 +29,20 @@
     <div style="margin-top: 10px">
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
-          <ng-container matColumnDef="Exerxises" style="display: flex">
+          <ng-container matColumnDef="Exerxises">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Exercises</th>
-            <td mat-cell *matCellDef="let row">
-              <img
-                src="{{ row.assetUrl }}"
-                style="width: 50px; margin-right: 10px"
-              />{{ row.name }}
+            <td mat-cell *matCellDef="let row" style="max-width: 100px;">
+              <div style="display: flex; align-items: center;">
+                <div>
+                  <img
+                    src="{{ row.assetUrl }}"
+                    style="width: 50px; margin-right: 10px"
+                  />
+                </div>
+                <div style="align-items: center; align-content: center;">
+                  {{ row.name }}
+                </div>
+              </div>
             </td>
           </ng-container>
           <!-- ID Column -->
@@ -67,7 +74,10 @@
           </ng-container>
 
           <!-- Fruit Column -->
-          <ng-container matColumnDef="Actions">
+          <ng-container
+            matColumnDef="Actions"
+            stickyEnd
+          >
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
             <td mat-cell *matCellDef="let row">
               <button

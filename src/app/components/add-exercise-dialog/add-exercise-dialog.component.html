@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Add New Exercise</h1>
+<div mat-dialog-content>
+  <form [formGroup]="exerciseForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Placeholder" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" placeholder="Category">
+        <mat-option value="Strength">Strength</mat-option>
+        <mat-option value="Bodyweight">Bodyweight</mat-option>
+        <mat-option value="Timed">Timed</mat-option>
+        <mat-option value="Distance (Long x time)">Distance (Long x time)</mat-option>
+        <mat-option value="Distance (short x time)">Distance (short x time)</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <label for=""><h1>Tag</h1></label>
+    <mat-radio-group formControlName="tag" class="example-radio-group">
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let fresh of tagList"
+        [value]="fresh"
+      >
+        {{ fresh }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field appearance="outline">
+      <mat-label>Primary Focus</mat-label>
+      <input
+        formControlName="focus"
+        matInput
+        type="text"
+        placeholder="Placeholder"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>URL gift</mat-label>
+      <textarea formControlName="assetUrl" matInput></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    (click)="addProduct()"
+  >
+    {{ actionBtn }}
+  </button>
+</div>
