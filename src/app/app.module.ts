@@ -8,17 +8,26 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './pages/free/signup/signup.component';
+import { LoginComponent } from './pages/free/login/login.component';
+import { ExercisesComponent } from './pages/auth/library/exercises/exercises.component';
+import { AddExerciseDialogComponent } from './components/add-exercise-dialog/add-exercise-dialog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path: "login", component: LoginComponent},
+  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'library/exercises', component: ExercisesComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    SignupComponent,
+    LoginComponent,
+    ExercisesComponent,
+    AddExerciseDialogComponent,
+  ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,

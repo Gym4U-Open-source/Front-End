@@ -36,8 +36,11 @@
             <mat-form-field class="form-items" appearance="outline" *ngIf="userCoachSelected">
               <mat-label>Select your focus</mat-label>
               <mat-select formControlName="coachFocus">
-                <mat-option value="normalUser">Normal user</mat-option>
-                <mat-option value="coachUser">Coach user</mat-option>
+                <mat-option value="personalTrainer">Personal Trainer</mat-option>
+                <mat-option value="sportCoach">Sport Coach</mat-option>
+                <mat-option value="gymManager">Gym manager</mat-option>
+                <mat-option value="owner">Owner</mat-option>
+                <mat-option value="healthProfessional">health Professional</mat-option>
               </mat-select>
             </mat-form-field>
           </p>

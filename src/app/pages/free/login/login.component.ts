@@ -40,17 +40,17 @@ export class LoginComponent implements OnInit {
           );
         });
         if (user) {
-          alert('Login Success');
+          console.log('Login Success');
           this.loginForm.reset();
           let _tmp = { loggedIn: true, data: user };
           localStorage.setItem('user', JSON.stringify(_tmp));
           window.location.reload();
         } else {
-          alert('User not found !!');
+          console.log('User not found !!');
         }
       },
       (err) => {
-        alert('Something went wrong !!');
+        console.log('Something went wrong !!');
       }
     );
   }

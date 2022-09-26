@@ -34,12 +34,12 @@ export class SignupComponent implements OnInit {
       .post<any>('http://localhost:3000/signupUser', this.signUpForm.value)
       .subscribe(
         (res) => {
-          alert('Sign Up successful !!');
+          console.log('Sign Up successful !!');
           this.signUpForm.reset();
           this.router.navigate(['login']);
         },
         (err) => {
-          alert('Something went wrong !!');
+          console.log('Something went wrong !!');
         }
       );
   }
