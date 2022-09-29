@@ -1,1 +1,31 @@
- 
+
+.example-header-image {
+  background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-size: cover;
+}
+
+.example-card {
+  max-width: 700px;
+  background-color: #f5f5f5;
+  margin: auto;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+
+}
+
+.example-card2 {
+  max-width: 1300px;
+  background-color: #f5f5f5;
+  margin: auto;
+
+}
+.mat-card1{
+  height: 200px;
+}
+
+.example-header-image2 {
+  background-size: cover;
+}
