@@ -75,10 +75,16 @@ td.mat-column-position {
 }
 
 .browser-icon {
-    color:#ACACAC;
+    color: #ACACAC;
     position: absolute;
     top: 281.5px;
     padding-left: 9px;
+}
+
+.mat-table-sticky {
+    max-width: 100px;
+    width: 30px;
+    padding-left: 10px;
 }
 
 @media (max-width: 1280px) {
@@ -88,9 +94,6 @@ td.mat-column-position {
         margin: 0 auto;
         padding: 0 5px;
         padding-top: 52px;
-    }
-
-    .browser-icon {
     }
 }
 
@@ -110,5 +113,10 @@ td.mat-column-position {
 
     .browser-icon {
         top: 326.5px;
+    }
+
+    .mat-table-sticky {
+        max-width: 30px;
+        padding-left: 10px;
     }
 }

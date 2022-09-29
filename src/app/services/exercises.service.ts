@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ExercisesService {
-  baseUrl: string = 'http://localhost:3000/exercises/';
+  baseUrl: string = 'https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/exercises/';
 
   constructor(private http: HttpClient) {}
 

@@ -10,7 +10,7 @@ import {Post} from "../components/model/post";
 export class PostsService {
 //posts endpoint
 
-  basePath = 'http://localhost:3000/posts'
+  basePath = 'https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/posts'
 
   httpOptions={
     headers: new HttpHeaders({
