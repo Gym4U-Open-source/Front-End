@@ -64,7 +64,16 @@
       "id": 1,
       "name": "Juan",
       "lastName": "Palacios",
-      "email": "JuanP@gmail.com",
+      "email": "JuanP@gmail.com"
+    }
+  ],
+  "customer":[
+    {
+      "id": 1,
+      "status": "In progress",
+      "workout": "Cardio Basico",
+      "date": "5 de septiembre 2022",
+      "progress": "4 de 5"
     }
   ]
 }
