@@ -1,9 +1,9 @@
 # Gym4U FrontEnd
 
 ## Developers
-Breydi Ramos
-Clinder Timoteo
-Juan Palacios
+### Breydi Ramos
+### Clinder Timoteo
+### Juan Palacios
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
