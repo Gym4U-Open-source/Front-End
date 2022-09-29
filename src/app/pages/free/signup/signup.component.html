@@ -1,0 +1,78 @@
+<div class="container font-baloo2">
+    <div class="form-container">
+      <div class="">
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()" class="form-top">
+          <div class="">
+            <h1 class="tile-l">Sign up</h1>
+          </div>
+          <p>
+            <mat-form-field class="form-items" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input formControlName="name" matInput placeholder="Name" />
+              <mat-hint>Enter your name</mat-hint>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="form-items" appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input
+                formControlName="lastName"
+                matInput
+                placeholder="Last Name"
+              />
+              <mat-hint>Enter your Last name</mat-hint>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="form-items" appearance="outline">
+              <mat-label>Select your user type</mat-label>
+              <mat-select formControlName="userType" (selectionChange)="selectUserType()">
+                <mat-option value="normalUser">Normal user</mat-option>
+                <mat-option value="coachUser">Coach user</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="form-items" appearance="outline" *ngIf="userCoachSelected">
+              <mat-label>Select your focus</mat-label>
+              <mat-select formControlName="coachFocus">
+                <mat-option value="personalTrainer">Personal Trainer</mat-option>
+                <mat-option value="sportCoach">Sport Coach</mat-option>
+                <mat-option value="gymManager">Gym manager</mat-option>
+                <mat-option value="owner">Owner</mat-option>
+                <mat-option value="healthProfessional">health Professional</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="form-items" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input formControlName="email" matInput placeholder="Email" />
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Enter your Email</mat-hint>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="form-items" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                formControlName="password"
+                matInput
+                placeholder="Password"
+              />
+              <mat-icon matSuffix>visibility_off</mat-icon>
+              <mat-hint>Enter your password</mat-hint>
+            </mat-form-field>
+          </p>
+          <br />
+          <button type="submit" mat-flat-button color="primary" class="btn-login">
+            Sign up
+          </button>
+          <br />
+        </form>
+        <a routerLink="/login">Already Register? Click to Login </a>
+      </div>
+    </div>
+  </div>
+  

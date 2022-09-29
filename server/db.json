@@ -1,0 +1,86 @@
+{
+  "signupUser": [
+    {
+      "name": "Breydi",
+      "lastName": "Ramos Terrones",
+      "userType": "normalUser",
+      "coachFocus": "",
+      "email": "ogreydi123@gmail.com",
+      "password": "Xyoyu157",
+      "id": 1
+    },
+    {
+      "name": "Smith",
+      "lastName": "Ramos Terrones",
+      "userType": "coachUser",
+      "coachFocus": "personalTrainer",
+      "email": "smith@gmail.com",
+      "password": "Xyoyu157",
+      "id": 2
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "userId": 1,
+      "category": "strength",
+      "focus": "arms",
+      "tag": "principiante",
+      "name": "Planchas",
+      "custom": true,
+      "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "category": "strength",
+      "focus": "legs",
+      "tag": "intermedio",
+      "name": "Ranas",
+      "custom": true,
+      "assetUrl": "https://i.pinimg.com/originals/d0/54/1b/d0541bb653319a56a5d876e3eabb319a.gif"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "name_user": "Apolos",
+      "role": "trainer",
+      "image_post": "https://images.unsplash.com/photo-1580086319619-3ed498161c77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+      "image_perfil": "https://images.unsplash.com/photo-1580086319619-3ed498161c77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+      "post_desciption": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali"
+    },
+    {
+      "id": 2,
+      "name_user": "User 2",
+      "role": "trainer",
+      "image_post": "https://images.unsplash.com/photo-1546483875-ad9014c88eba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1082&q=80",
+      "image_perfil": "https://images.unsplash.com/photo-1546483875-ad9014c88eba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1082&q=80",
+      "post_desciption": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali"
+    },
+    {
+      "id": 3,
+      "name_user": "User 3",
+      "role": "trainer",
+      "image_post": "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
+      "image_perfil": "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
+      "post_desciption": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali"
+    },
+    {
+      "id": 4,
+      "name_user": "User 4",
+      "role": "trainer",
+      "image_post": "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+      "image_perfil": "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+      "post_desciption": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali"
+    },
+    {
+      "id": 5,
+      "name_user": "User 5",
+      "role": "trainer",
+      "image_post": "https://images.unsplash.com/photo-1521805103424-d8f8430e8933?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "image_perfil": "https://images.unsplash.com/photo-1521805103424-d8f8430e8933?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "post_desciption": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<div class="container font-baloo2">
+  <div class="form-container">
+    <div class="">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-top">
+        <div class="">
+          <h3 class="hint">Login</h3>
+          <h1 class="tile-l">Gym4U</h1>
+        </div>
+        <p>
+          <mat-form-field class="form-items" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="Email" />
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Enter your email registered</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field class="form-items" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              formControlName="password"
+              matInput
+              placeholder="Password"
+            />
+            <mat-icon matSuffix>visibility_off</mat-icon>
+            <mat-hint>Enter your password</mat-hint>
+          </mat-form-field>
+        </p>
+        <p class="hint">
+          Forgot your username or password? call the <br />following phone
+          number: <span>+51 923553711</span>
+        </p>
+        <br />
+        <button type="submit" mat-flat-button color="primary" class="btn-login">
+          Login
+        </button>
+        <br />
+      </form>
+      <a routerLink="/signup">New User? Click to Sign Up </a>
+    </div>
+  </div>
+</div>
