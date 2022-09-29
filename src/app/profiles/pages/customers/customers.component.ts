@@ -6,7 +6,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {CustomersService} from "../../services/customers.service";
 import {MatDialog} from "@angular/material/dialog";
-import {AddExerciseDialogComponent} from "../../../components/add-exercise-dialog/add-exercise-dialog.component";
+import { AddExerciseDialogComponent } from 'src/app/Fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
 import {AddCustomerDialogComponent} from "../../components/add-customer-dialog/add-customer-dialog.component";
 
 @Component({
