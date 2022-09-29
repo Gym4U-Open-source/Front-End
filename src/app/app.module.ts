@@ -12,12 +12,20 @@ import { SignupComponent } from './pages/free/signup/signup.component';
 import { LoginComponent } from './pages/free/login/login.component';
 import { ExercisesComponent } from './pages/auth/library/exercises/exercises.component';
 import { AddExerciseDialogComponent } from './components/add-exercise-dialog/add-exercise-dialog.component';
+<<<<<<< HEAD
 import { PostsComponent } from './components/posts/posts.component';
+=======
+import { CustomersComponent } from './profiles/pages/customers/customers.component';
+import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
+import { CustomerComponent } from './profiles/pages/customer/customer.component';
+>>>>>>> GYM-39-coach-visualizes-a-customer
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'customers', component: CustomersComponent},
+  { path: 'customer', component: CustomerComponent},
   { path: 'library/exercises', component: ExercisesComponent },
   { path: 'posts', component: PostsComponent }
 ];
@@ -29,7 +37,13 @@ const routes: Routes = [
     LoginComponent,
     ExercisesComponent,
     AddExerciseDialogComponent,
+<<<<<<< HEAD
     PostsComponent,
+=======
+    CustomersComponent,
+    AddCustomerDialogComponent,
+    CustomerComponent,
+>>>>>>> GYM-39-coach-visualizes-a-customer
   ],
   imports: [
     RouterModule.forRoot(routes),

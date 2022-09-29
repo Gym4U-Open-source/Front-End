@@ -59,6 +59,7 @@
       "id": 4
     }
   ],
+<<<<<<< HEAD
   "posts": [
     {
       "id": 1,
@@ -99,6 +100,23 @@
       "image_post": "https://images.unsplash.com/photo-1521805103424-d8f8430e8933?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "image_perfil": "https://images.unsplash.com/photo-1521805103424-d8f8430e8933?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "post_desciption": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali"
+=======
+  "customers": [
+    {
+      "id": 1,
+      "name": "Juan",
+      "lastName": "Palacios",
+      "email": "JuanP@gmail.com"
+    }
+  ],
+  "customer":[
+    {
+      "id": 1,
+      "status": "In progress",
+      "workout": "Cardio Basico",
+      "date": "5 de septiembre 2022",
+      "progress": "4 de 5"
+>>>>>>> GYM-39-coach-visualizes-a-customer
     }
   ]
 }
