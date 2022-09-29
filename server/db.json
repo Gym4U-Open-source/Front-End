@@ -64,9 +64,7 @@
       "id": 1,
       "name": "Juan",
       "lastName": "Palacios",
-      "userType": "Customer",
       "email": "JuanP@gmail.com",
-      "password": "12345"
     }
   ]
 }

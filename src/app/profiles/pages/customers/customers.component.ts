@@ -6,6 +6,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {CustomersService} from "../../services/customers.service";
 import {MatDialog} from "@angular/material/dialog";
+import {AddExerciseDialogComponent} from "../../../components/add-exercise-dialog/add-exercise-dialog.component";
+import {AddCustomerDialogComponent} from "../../components/add-customer-dialog/add-customer-dialog.component";
 
 @Component({
   selector: 'app-customers',
@@ -14,7 +16,7 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class CustomersComponent implements OnInit {
 
-  clientData: CustomerProfile;
+  customerData: CustomerProfile;
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'name', 'lastName', 'email','last7dTraining','last1mTraining','last7dTasks', 'options'];
 
@@ -27,12 +29,24 @@ export class CustomersComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private clientService: CustomersService,
+  constructor(private customerService: CustomersService,
               public dialog: MatDialog) {
-    this.clientData = {} as CustomerProfile;
+    this.customerData = {} as CustomerProfile;
     this.dataSource = new MatTableDataSource<any>();
   }
 
+  openDialog() {
+    this.dialog
+      .open(AddCustomerDialogComponent, {
+        width: '432px',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllClients();
+        }
+      });
+  }
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.getAllClients();
@@ -41,12 +55,12 @@ export class CustomersComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
   getAllClients() {
-    this.clientService.getAll().subscribe((response: any) => {
+    this.customerService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
     });
   }
   deleteItem(id: number){
-    this.clientService.delete(id).subscribe(()=>{
+    this.customerService.delete(id).subscribe(()=>{
       this.dataSource.data = this.dataSource.data.filter((o:CustomerProfile) => {return o.id !== id ? o : false})
     });
   }

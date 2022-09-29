@@ -13,6 +13,8 @@ import { LoginComponent } from './pages/free/login/login.component';
 import { ExercisesComponent } from './pages/auth/library/exercises/exercises.component';
 import { AddExerciseDialogComponent } from './components/add-exercise-dialog/add-exercise-dialog.component';
 import { CustomersComponent } from './profiles/pages/customers/customers.component';
+import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
+import { CustomerComponent } from './profiles/pages/customer/customer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +32,8 @@ const routes: Routes = [
     ExercisesComponent,
     AddExerciseDialogComponent,
     CustomersComponent,
+    AddCustomerDialogComponent,
+    CustomerComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -2,6 +2,9 @@
   <h1>Customers</h1>
 
 
+  <button mat-stroked-button (click)="openDialog()" class="btn-auth">
+    + Add new customer
+  </button>
   <!-- Data Table -->
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="id">
@@ -43,7 +46,7 @@
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{'editable-row': clientData.id === row.id}"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{'editable-row': customerData.id === row.id}"></tr>
   </table>
   <!-- Paginator Child Component -->
   <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>

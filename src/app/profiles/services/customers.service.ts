@@ -50,4 +50,12 @@ export class CustomersService {
     return this.http.delete<CustomerProfile> ( `${this.basePath}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  postCustomer(data: any) {
+    return this.http.post<any>(this.basePath, data);
+  }
+
+  updateCustomer(data: any, id: number) {
+    return this.http.put<any>(this.basePath + id, data);
+  }
 }
