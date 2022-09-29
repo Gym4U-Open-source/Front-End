@@ -40,5 +40,15 @@
       "custom": true,
       "assetUrl": "https://i.pinimg.com/originals/d0/54/1b/d0541bb653319a56a5d876e3eabb319a.gif"
     }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Juan",
+      "lastName": "Palacios",
+      "userType": "Customer",
+      "email": "JuanP@gmail.com",
+      "password": "12345"
+    }
   ]
 }

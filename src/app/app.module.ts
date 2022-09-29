@@ -12,11 +12,13 @@ import { SignupComponent } from './pages/free/signup/signup.component';
 import { LoginComponent } from './pages/free/login/login.component';
 import { ExercisesComponent } from './pages/auth/library/exercises/exercises.component';
 import { AddExerciseDialogComponent } from './components/add-exercise-dialog/add-exercise-dialog.component';
+import { CustomersComponent } from './profiles/pages/customers/customers.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'customers', component: CustomersComponent},
   { path: 'library/exercises', component: ExercisesComponent },
 ];
 
@@ -27,6 +29,7 @@ const routes: Routes = [
     LoginComponent,
     ExercisesComponent,
     AddExerciseDialogComponent,
+    CustomersComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
