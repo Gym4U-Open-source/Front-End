@@ -1,54 +1,53 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CustomerProfile} from "../../model/customer-profile";
 import {MatTableDataSource} from "@angular/material/table";
 import {NgForm} from "@angular/forms";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {CustomerProfileService} from "../../services/customer-profile.service";
+import {CustomersService} from "../../services/customers.service";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
-export class CustomersComponent implements OnInit, AfterViewInit {
+export class CustomersComponent implements OnInit {
 
-  customerData: CustomerProfile;
+  clientData: CustomerProfile;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'name', 'lastName', 'address']
+  displayedColumns: string[] = ['id', 'name', 'lastName', 'email','last7dTraining','last1mTraining','last7dTasks', 'options'];
 
-  @ViewChild('customerForm', {static: false})
-  customerForm! : NgForm;
+  @ViewChild('studentForm', {static:false})
+  studentForm! : NgForm;
 
-  @ViewChild(MatPaginator, {static:true})
-  paginator!: MatPaginator;
+  @ViewChild(MatPaginator, {static: true})
+  paginator!:MatPaginator;
 
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private customerService: CustomerProfileService) {
-    this.customerData = {} as CustomerProfile;
+  constructor(private clientService: CustomersService,
+              public dialog: MatDialog) {
+    this.clientData = {} as CustomerProfile;
     this.dataSource = new MatTableDataSource<any>();
   }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
-    this.getAllCustomers
+    this.getAllClients();
   }
-
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
-
-  getAllCustomers() {
-    this.customerService.getAll().subscribe((response: any) => {
+  getAllClients() {
+    this.clientService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
     });
   }
-
-  deleteItem(id: number) {
-    this.customerService.delete(id).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter((o: CustomerProfile) => {return o.id !== id ? o : false});
+  deleteItem(id: number){
+    this.clientService.delete(id).subscribe(()=>{
+      this.dataSource.data = this.dataSource.data.filter((o:CustomerProfile) => {return o.id !== id ? o : false})
     });
   }
 
