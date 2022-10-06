@@ -16,6 +16,7 @@ import { CustomersComponent } from './profiles/pages/customers/customers.compone
 import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
 import { CustomerComponent } from './profiles/pages/customer/customer.component';
 import { AddExerciseDialogComponent } from './Fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
+import { HomeComponent } from './public/pages/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,8 +24,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'customers', component: CustomersComponent},
   { path: 'customer', component: CustomerComponent},
-  { path: 'library/exercises', component: ExercisesComponent },
-  { path: 'posts', component: PostsComponent }
+  { path: 'exercises', component: ExercisesComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Routes = [
     AddCustomerDialogComponent,
     CustomerComponent,
     ExercisesComponent,
-    AddExerciseDialogComponent
+    AddExerciseDialogComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

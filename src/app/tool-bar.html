@@ -1,0 +1,51 @@
+<nav class="nav-var font-baloo2">
+    <button mat-icon-button class="btn-menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div routerLink="/" class="nav-item">
+      <img src="https://i.ibb.co/WWXTnGH/logo.png" alt="Gym4U" class="img-p" />
+    </div>
+    <div class="browser">
+      <mat-icon class="browser-icon">search</mat-icon>
+      <input
+        type="text"
+        class="browser-input"
+        placeholder="Look for posts  ..."
+        [formControl]="control"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let street of filteredStreets | async"
+          [value]="street"
+        >
+          {{ street }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+    <div class="nav-auth" *ngIf="!userData.loggedIn">
+      <button
+        mat-stroked-button
+        routerLink="/login"
+        class="btn-auth btn-color-signIn"
+      >
+        Sign in
+      </button>
+      <button
+        mat-flat-button
+        routerLink="/signup"
+        color="primary"
+        class="btn-auth btn-color-signUp bg-gradient-to-r"
+      >
+        Sign up
+      </button>
+    </div>
+    <div class="nav-auth" *ngIf="userData.loggedIn">
+      <div>
+        {{ userData.data.name }} {{ userData.data.lastName }} <br />
+        {{ userData.data.userType }}
+      </div>
+      <button (click)="logout()" mat-flat-button color="primary">Log out</button>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
