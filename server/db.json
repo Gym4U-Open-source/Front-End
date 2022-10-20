@@ -110,7 +110,9 @@
             "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
           },
           "sets": 3,
-          "timePerSet": 30
+          "timePerSet": 30,
+          "status": "Pending",
+          "date": "28/11/2022"
         },
         {
           "id": 2,
@@ -124,7 +126,9 @@
             "id": 4
           },
           "sets": 3,
-          "timePerSet": 60
+          "timePerSet": 60,
+          "status": "Pending",
+          "date": "28/11/2022"
         }
       ],
       "status": "Pending",
@@ -197,7 +201,9 @@
                 "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
               },
               "sets": 3,
-              "timePerSet": 30
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
             },
             {
               "id": 2,
@@ -211,7 +217,9 @@
                 "id": 4
               },
               "sets": 3,
-              "timePerSet": 60
+              "timePerSet": 60,
+              "status": "Pending",
+              "date": "28/11/2022"
             }
           ],
           "status": "Pending",
@@ -254,8 +262,6 @@
           "status": "Pending",
           "date": "28/11/2022"
         }
-
-
       ]
     },
     {

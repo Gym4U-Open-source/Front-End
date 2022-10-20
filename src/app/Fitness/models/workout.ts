@@ -6,6 +6,7 @@ export interface  ExerciseInstruction {
   sets: number;
   timePerSet: number;
   status: string;
+  date: string;
 }
 
 export interface Workout{

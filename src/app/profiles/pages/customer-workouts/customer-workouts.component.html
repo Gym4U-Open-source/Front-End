@@ -6,7 +6,8 @@
       *ngFor="let tile of tiles"
       [colspan]="tile.cols"
       [rowspan]="tile.rows"
-      [style.background]="tile.color">
+      [style.background]="tile.color"
+      [style.border]="tile.border">
       {{tile.text}}
     </mat-grid-tile>
   </mat-grid-list>
@@ -14,7 +15,7 @@
   &nbsp;
 
   <div>
-    <button mat-stroked-button class="btn-auth">
+    <button mat-stroked-button (click)="openDialog()" class="btn-auth" >
       + Assign new workout
     </button>
   </div>

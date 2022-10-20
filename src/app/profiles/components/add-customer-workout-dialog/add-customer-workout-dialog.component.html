@@ -1,1 +1,33 @@
-<p>add-customer-workout-dialog works!</p>
+<h1 mat-dialog-title>Assing Workout</h1>
+<div mat-dialog-content>
+  <form [formGroup]="customerForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Workout</mat-label>
+      <input formControlName="workout" matInput placeholder="workout" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Workout</mat-label>
+      <mat-select formControlName="category" placeholder="Category" *ngFor="let workout of workouts">
+        <mat-option value="workout">{{workout}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input formControlLastName="date" matInput placeholder="date" />
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button
+    style="margin-left: 8px"
+    mat-raised-button
+    color="primary"
+    (click)="addCustomer()"
+  >
+    {{ actionBtn }}
+  </button>
+</div>

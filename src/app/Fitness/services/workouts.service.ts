@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
 import {Workout} from "../models/workout";
+import {CustomerProfile} from "../../profiles/model/customer-profile";
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,11 @@ export class WorkoutsService {
 
   delete(id:any):Observable<Workout> {
     return this.http.delete<Workout> ( `${this.basePath}/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getAll():Observable<Workout> {
+    return this.http.get<Workout> (this.basePath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

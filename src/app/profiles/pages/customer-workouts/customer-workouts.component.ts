@@ -7,6 +7,10 @@ import {MatDialog} from "@angular/material/dialog";
 import {CustomerProfile} from "../../model/customer-profile";
 import {CustomersService} from "../../services/customers.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AddCustomerDialogComponent} from "../../components/add-customer-dialog/add-customer-dialog.component";
+import {
+  AddCustomerWorkoutDialogComponent
+} from "../../components/add-customer-workout-dialog/add-customer-workout-dialog.component";
 
 export interface Tile {
   color: string;
@@ -26,10 +30,10 @@ export class CustomerWorkoutsComponent implements OnInit {
 
   workoutsClientData: CustomerProfile;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'status', 'name', 'date','progress', 'options'];
+  displayedColumns: string[] = ['id', 'status', 'name', 'date', 'progress', 'options'];
 
   tiles: Tile[] = [
-    {text: 'Last 7 Days', cols: 1, rows: 1, color: 'white', border: '10px double purple'},
+    {text: 'Last 7 Days', cols: 1, rows: 1, color: 'white', border: '1px solid'},
     {text: 'Last 30 days', cols: 1, rows: 1, color: 'white', border: '1px solid'},
     {text: 'Next Week', cols: 1, rows: 1, color: 'white', border: '1px solid'},
     {text: '100%', cols: 1, rows: 1, color: 'white', border: '1px solid'},
@@ -37,11 +41,11 @@ export class CustomerWorkoutsComponent implements OnInit {
     {text: '100%', cols: 1, rows: 1, color: 'white', border: '1px solid'},
   ];
 
-  @ViewChild('workoutsClientForm', {static:false})
-  workoutsClientForm! : NgForm;
+  @ViewChild('workoutsClientForm', {static: false})
+  workoutsClientForm!: NgForm;
 
   @ViewChild(MatPaginator, {static: true})
-  paginator!:MatPaginator;
+  paginator!: MatPaginator;
 
   @ViewChild(MatSort)
   sort!: MatSort;
@@ -62,9 +66,11 @@ export class CustomerWorkoutsComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.getAllWorkoutsClient(this.id)
   }
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
+
   getAllWorkoutsClient(id: string | null) {
     this.workoutCustomerService.getById(id).subscribe((response: CustomerProfile) => {
       //console.log(response.workouts)
@@ -72,10 +78,27 @@ export class CustomerWorkoutsComponent implements OnInit {
       this.name = response.name + ' ' + response.lastName;
     });
   }
-  deleteItem(id: number){
-    this.workoutCustomerService.delete(id).subscribe(()=>{
-      this.dataSource.data = this.dataSource.data.filter((o:CustomerProfile) => {return o.id !== id ? o : false})
+
+  deleteItem(id: number) {
+    this.workoutCustomerService.delete(id).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter((o: CustomerProfile) => {
+        return o.id !== id ? o : false
+      })
     });
   }
 
+  openDialog() {
+    this.dialog
+      .open(AddCustomerWorkoutDialogComponent, {
+        width: '432px',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllWorkoutsClient(this.id);
+        }
+      });
+  }
 }
+
+

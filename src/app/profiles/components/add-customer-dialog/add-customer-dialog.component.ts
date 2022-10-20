@@ -22,9 +22,9 @@ export class AddCustomerDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerForm = this.formbuilder.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
+      name: ['name', Validators.required],
+      lastName: ['lastname', Validators.required],
+      email: ['email', Validators.required],
     });
 
 

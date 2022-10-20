@@ -17,14 +17,14 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
 
   workoutsClientData: Workout;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'status', 'exercise', 'date','sets', 'timePerSet', 'options'];
+  displayedColumns: string[] = ['id', 'status', 'exercise', 'date', 'sets', 'timePerSet', 'options'];
 
 
-  @ViewChild('workoutsClientForm', {static:false})
-  workoutsClientForm! : NgForm;
+  @ViewChild('workoutsClientForm', {static: false})
+  workoutsClientForm!: NgForm;
 
   @ViewChild(MatPaginator, {static: true})
-  paginator!:MatPaginator;
+  paginator!: MatPaginator;
 
   @ViewChild(MatSort)
   sort!: MatSort;
@@ -45,9 +45,11 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.getAllWorkoutsClient(this.id)
   }
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
+
   getAllWorkoutsClient(id: string | null) {
     this.workoutService.getById(id).subscribe((response: Workout) => {
       //console.log(response.workouts)
@@ -55,10 +57,16 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
       this.name = response.name;
     });
   }
-  deleteItem(id: number){
-    this.workoutService.delete(id).subscribe(()=>{
-      this.dataSource.data = this.dataSource.data.filter((o:Workout) => {return o.id !== id ? o : false})
+
+  deleteItem(id: number) {
+    this.workoutService.delete(id).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter((o: Workout) => {
+        return o.id !== id ? o : false
+      })
     });
   }
-
 }
+
+
+
+
