@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
 import {Workout} from "../models/workout";
-import {CustomerProfile} from "../../profiles/model/customer-profile";
 
 @Injectable({
   providedIn: 'root'

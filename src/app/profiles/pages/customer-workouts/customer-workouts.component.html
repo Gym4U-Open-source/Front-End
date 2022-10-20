@@ -1,6 +1,25 @@
-<div class="table-wrapper">
-  <h1>{{name}}</h1>
+<div class="container">
+  <h1 class="title">{{name}}</h1>
 
+  <mat-grid-list cols="3" rowHeight="75px" class="title">
+    <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      {{tile.text}}
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  &nbsp;
+
+  <div>
+    <button mat-stroked-button class="btn-auth">
+      + Assign new workout
+    </button>
+  </div>
+
+  &nbsp;
   <!-- Data Table -->
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="id">

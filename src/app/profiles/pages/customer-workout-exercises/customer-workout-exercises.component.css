@@ -18,3 +18,24 @@ table {
 .center {
   text-align: center;
 }
+
+.container {
+  font-family: 'Baloo 2';
+  max-width: 1650px;
+  margin: 0 auto;
+  padding: 0 40px;
+  padding-top: 52px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 64px;
+  /* identical to box height */
+
+  text-align: start;
+
+  color: rgba(0, 0, 0, 0.5);
+  padding-left: 0px;
+}

@@ -176,7 +176,7 @@
   "customers": [
     {
       "id": 1,
-      "name": "Juan",
+      "name": "Juan Pablo",
       "lastName": "Palacios",
       "email": "JuanP@gmail.com",
       "workouts": [
@@ -216,7 +216,46 @@
           ],
           "status": "Pending",
           "date": "28/11/2022"
+        },
+        {
+          "id": 1,
+          "name": "Cardio",
+          "exercises": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30
+            },
+            {
+              "id": 2,
+              "exercise": {
+                "name": "Reverse Plank Leg Raises",
+                "category": "Strength",
+                "tag": "Avanzado",
+                "focus": "Piernas",
+                "assetUrl": "https://i.pinimg.com/originals/37/18/cc/3718cce716d6575a5704156befcd1f07.gif",
+                "custom": "true",
+                "id": 4
+              },
+              "sets": 3,
+              "timePerSet": 60
+            }
+          ],
+          "status": "Pending",
+          "date": "28/11/2022"
         }
+
+
       ]
     },
     {
@@ -224,12 +263,6 @@
       "name": "name 1",
       "lastName": "lastName 1",
       "email": "email 1"
-    },
-    {
-      "id": 3,
-      "name": "name 2",
-      "lastName": "lastName 2",
-      "email": "email 2"
     }
   ]
 }

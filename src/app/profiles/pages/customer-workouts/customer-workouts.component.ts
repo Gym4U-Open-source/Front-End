@@ -8,17 +8,34 @@ import {CustomerProfile} from "../../model/customer-profile";
 import {CustomersService} from "../../services/customers.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+  border: string;
+}
+
 @Component({
   selector: 'app-customer-workouts',
   templateUrl: './customer-workouts.component.html',
   styleUrls: ['./customer-workouts.component.css']
 })
+
 export class CustomerWorkoutsComponent implements OnInit {
 
   workoutsClientData: CustomerProfile;
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'status', 'name', 'date','progress', 'options'];
 
+  tiles: Tile[] = [
+    {text: 'Last 7 Days', cols: 1, rows: 1, color: 'white', border: '10px double purple'},
+    {text: 'Last 30 days', cols: 1, rows: 1, color: 'white', border: '1px solid'},
+    {text: 'Next Week', cols: 1, rows: 1, color: 'white', border: '1px solid'},
+    {text: '100%', cols: 1, rows: 1, color: 'white', border: '1px solid'},
+    {text: '100%', cols: 1, rows: 1, color: 'white', border: '1px solid'},
+    {text: '100%', cols: 1, rows: 1, color: 'white', border: '1px solid'},
+  ];
 
   @ViewChild('workoutsClientForm', {static:false})
   workoutsClientForm! : NgForm;
@@ -52,7 +69,7 @@ export class CustomerWorkoutsComponent implements OnInit {
     this.workoutCustomerService.getById(id).subscribe((response: CustomerProfile) => {
       //console.log(response.workouts)
       this.dataSource.data = response.workouts;
-      this.name = response.name;
+      this.name = response.name + ' ' + response.lastName;
     });
   }
   deleteItem(id: number){

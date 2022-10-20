@@ -18,6 +18,7 @@ import { AddExerciseDialogComponent } from './Fitness/pages/components/add-exerc
 import { HomeComponent } from './public/pages/home/home.component';
 import { CustomerWorkoutsComponent } from './profiles/pages/customer-workouts/customer-workouts.component';
 import { CustomerWorkoutExercisesComponent } from './profiles/pages/customer-workout-exercises/customer-workout-exercises.component';
+import { AddCustomerWorkoutDialogComponent } from './profiles/components/add-customer-workout-dialog/add-customer-workout-dialog.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -43,7 +44,8 @@ const routes: Routes = [
     AddExerciseDialogComponent,
     HomeComponent,
     CustomerWorkoutsComponent,
-    CustomerWorkoutExercisesComponent
+    CustomerWorkoutExercisesComponent,
+    AddCustomerWorkoutDialogComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

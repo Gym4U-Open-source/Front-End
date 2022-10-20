@@ -1,10 +1,16 @@
-<div class="table-wrapper">
-  <h1>Customers</h1>
+<div class="container">
+  <h1 class="title">Customers</h1>
 
 
-  <button mat-stroked-button (click)="openDialog()" class="btn-auth">
-    + Add new customer
-  </button>
+  <div>
+    <button mat-stroked-button (click)="openDialog()" class="btn-auth">
+      + Add new customer
+    </button>
+  </div>
+
+  &nbsp;
+
+
   <!-- Data Table -->
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="id">
