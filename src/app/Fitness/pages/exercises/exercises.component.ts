@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core'; // ViewChild -> for table func
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AddExerciseDialogComponent } from 'src/app/components/add-exercise-dialog/add-exercise-dialog.component';
-import { ExercisesService } from 'src/app/services/exercises.service';
+import { AddExerciseDialogComponent } from '../components/add-exercise-dialog/add-exercise-dialog.component';
+import { ExercisesService } from '../../services/exercises.service';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -66,7 +66,7 @@ export class ExercisesComponent implements OnInit {
         this.totalData = res.length
       },
       error: (err) => {
-        alert('Error while fetching the Records!!');
+        console.log('Error while fetching the Records!!');
       },
     });
   }
@@ -88,11 +88,11 @@ export class ExercisesComponent implements OnInit {
   deleteProduct(id: number) {
     this.api.deleteProduct(id).subscribe({
       next: (res) => {
-        alert('Produc deleted successfully.');
+        console.log('Exercise deleted successfully.');
         this.getAllProducts();
       },
       error: (err) => {
-        alert('Something went while deleting');
+        console.log('Something went while deleting');
       },
     });
   }

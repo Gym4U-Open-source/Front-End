@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
 
   signUp() {
     this.http
-      .post<any>('http://localhost:3000/signupUser', this.signUpForm.value)
+      .post<any>('https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/signupUser', this.signUpForm.value)
       .subscribe(
         (res) => {
           console.log('Sign Up successful !!');

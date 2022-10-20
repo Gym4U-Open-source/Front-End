@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.http.get<any>('http://localhost:3000/signupUser').subscribe(
+    this.http.get<any>('https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/signupUser').subscribe(
       (res) => {
         const user = res.find((a: any) => {
           return (
