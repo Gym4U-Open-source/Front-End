@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core'; // ViewChild -> for table func
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AddExerciseDialogComponent } from 'src/app/components/add-exercise-dialog/add-exercise-dialog.component';
-import { ExercisesService } from 'src/app/services/exercises.service';
+import { AddExerciseDialogComponent } from '../components/add-exercise-dialog/add-exercise-dialog.component';
+import { ExercisesService } from '../../services/exercises.service';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';

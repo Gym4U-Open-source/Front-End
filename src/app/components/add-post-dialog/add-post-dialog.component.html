@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Add a Post</h1>
+<div mat-dialog-content>
+  <form [formGroup]="postForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Image_Url</mat-label>
+      <input formControlName="image_post" matInput  placeholder="Title" >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>post_description</mat-label>
+      <textarea formControlName="post_description" matInput placeholder="Content" ></textarea>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color = "primary" (click)="add()">Save</button>
+</div>

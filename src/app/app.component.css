@@ -1,42 +1,22 @@
-.nav-var {
-    height: 70px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+mat-toolbar {
+    background: white;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-color: #E6E6E6;
-    padding-left: 30px;
-    padding-right: 30px;
-    align-items: center;
+    padding: 0 80px;
+    font-family: 'Baloo 2';
 }
 
-.nav-auth {
-    display: flex;
-}
-
-.btn-auth {
-    width: 110px;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 5px;
-}
-
-.btn-color-signIn {
-    color: #6C6C6C;
-    margin-right: 20px;
-}
-
-.btn-color-signUp {
-    background: #9747FF;
+.logo:hover {
+    cursor: pointer;
 }
 
 .browser {
     position: relative;
-    width: 900px;
+    width: 60%;
 }
 
-.browser-input {
+.browser input {
     width: 100%;
     height: 36px;
     padding-left: 50px;
@@ -45,21 +25,25 @@
     border-radius: 10px;
 }
 
-.browser-icon {
+.browser mat-icon {
     position: absolute;
     top: 8px;
     left: 12px;
 }
 
-.img-p {
-    margin-left: 95px;
+.btn {
+    width: 110px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
 }
 
-.img-p:hover {
-    cursor: pointer;
+.btn-signIn {
+    color: #6C6C6C;
+    margin-right: 20px;
 }
 
-.bg-gradient-to-r {
+.btn-signUp {
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
     --tw-gradient-from: #ec4899;
     --tw-gradient-to: rgb(236 72 153 / 0);
@@ -67,78 +51,107 @@
     --tw-gradient-to: #eab308;
 }
 
-.bg-gradient-to-r:hover {
+.btn-signUp:hover {
     --tw-gradient-from: #4ade80;
     --tw-gradient-to: rgb(74 222 128 / 0);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
     --tw-gradient-to: #3b82f6;
 }
 
-.btn-menu {
-    display: none;
+.profile {
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    font-style: normal;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.profile .data span {
+    color: #606060;
+}
+
+.profile .image {
+    width: 40px;
+    height: 40px;
+    border-radius: 187px;
+    margin-right: 12px;
+}
+
+mat-sidenav-container {
+    height: 93.2vh;
+}
+
+mat-sidenav-container mat-nav-list {
+    width: 300px;
+}
+
+mat-toolbar .spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar .spacer-profile {
+    flex: 1 1 auto;
 }
 
 @media (max-width: 1500px) {
-    .browser {
-        width: 600px;
+    mat-toolbar {
+        padding: 0 20px;
     }
-    .img-p {
-        margin-left: 4px;
+
+    .browser {
+        width: 50%;
     }
 }
 
-@media (max-width: 1280px) {
-    .nav-var {
-        padding-left: 4px;
-        padding-right: 4px;
+@media (max-width: 1248px) {
+    .btn-signIn {
+        margin-left: 35px;
     }
 
-    .img-p {
-        margin-left: 4px;
-    }
-
-    .btn-color-signIn {
-        margin-right: 10px;
+    mat-toolbar .profile {
+        margin-left: 35px;
     }
 }
 
 @media (max-width: 1024px) {
+    mat-toolbar {
+        padding: 0 0;
+    }
+
     .browser {
-        max-width: 400px;
+        width: 60%;
     }
 
-    .btn-color-signIn {
-        margin-right: 5px;
-    }
-}
-
-@media (max-width: 640px) {
-    .nav-var {
-        display: flex;
-        flex-wrap:nowrap;
-        justify-content: flex-start;
-        width: 100%;
-    }
-    .img-p {
-        width: 60px;
-        margin-left: 0px;
-    }
-
-    .browser-input {
-        max-width: 80%;
-    }
-
-    .btn-auth {
+    mat-toolbar .spacer {
         display: none;
     }
 
-    .btn-menu {
-        display: block;
+    mat-toolbar .logo {
+        width: 60px;
+    }
+
+    .btn {
+        display: none;
+    }
+
+    mat-toolbar .profile .data {
+        display: none;
     }
 }
 
-@media (max-width: 40px) {
+@media (max-width: 600px) {
     .browser {
-        max-width: 280px;
+        width: 57%;
+    }
+
+    mat-sidenav-container {
+        height: 94.1vh;
+    }
+
+    mat-toolbar .profile {
+        display: none;
     }
 }

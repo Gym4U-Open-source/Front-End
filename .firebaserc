@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gym4u-v1": {
+      "hosting": {
+        "Front-End": [
+          "gym4u-v1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gym4u-v1"
+  }
+}
