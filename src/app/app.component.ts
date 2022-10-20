@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
@@ -20,6 +22,10 @@ export class AppComponent implements OnInit {
   filteredStreets!: Observable<string[]>;
   userData!: any;
 
+  @ViewChild('sidenav', {static: true}) public sidenav!: MatSidenav
+
+  constructor(private router: Router) {}
+
   ngOnInit() {
     this.filteredStreets = this.control.valueChanges.pipe(
       startWith(''),
@@ -28,6 +34,8 @@ export class AppComponent implements OnInit {
 
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(this.userData);
+
+    this.router.navigate(["/home"])
   }
 
   private _filter(value: string): string[] {
@@ -47,5 +55,10 @@ export class AppComponent implements OnInit {
     let _tmp = { loggedIn: false, data: {} };
     localStorage.setItem('user', JSON.stringify(_tmp));
     window.location.reload();
+  }
+
+  sidenavOptionSelect(route: string) {
+    this.sidenav.close()
+    this.router.navigate([`/${route}`])
   }
 }

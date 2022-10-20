@@ -8,18 +8,25 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './pages/free/signup/signup.component';
-import { LoginComponent } from './pages/free/login/login.component';
-import { ExercisesComponent } from './pages/auth/library/exercises/exercises.component';
-import { AddExerciseDialogComponent } from './components/add-exercise-dialog/add-exercise-dialog.component';
+import { SignupComponent } from './Security/pages/signup/signup.component';
+import { LoginComponent } from './Security/pages/login/login.component';
+import { ExercisesComponent } from './Fitness/pages/exercises/exercises.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { CustomersComponent } from './profiles/pages/customers/customers.component';
+import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
+import { CustomerComponent } from './profiles/pages/customer/customer.component';
+import { AddExerciseDialogComponent } from './Fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
+import { HomeComponent } from './public/pages/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'library/exercises', component: ExercisesComponent },
-  { path: 'posts', component: PostsComponent }
+  { path: 'customers', component: CustomersComponent},
+  { path: 'customer', component: CustomerComponent},
+  { path: 'exercises', component: ExercisesComponent },
+  { path: 'posts', component: PostsComponent },
+  { path: 'home', component: HomeComponent}
 ];
 
 @NgModule({
@@ -27,9 +34,13 @@ const routes: Routes = [
     AppComponent,
     SignupComponent,
     LoginComponent,
+    PostsComponent,
+    CustomersComponent,
+    AddCustomerDialogComponent,
+    CustomerComponent,
     ExercisesComponent,
     AddExerciseDialogComponent,
-    PostsComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

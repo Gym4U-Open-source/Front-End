@@ -96,6 +96,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Front-End:build:production",
+            "firebaseProject": "gym4u-v1",
+            "firebaseHostingSite": "gym4u-v1"
+          }
         }
       }
     }
