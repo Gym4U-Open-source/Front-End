@@ -1,27 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BaseService } from 'src/app/shared/services/base.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ExercisesService {
-  baseUrl: string = 'https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/exercises/';
-
-  constructor(private http: HttpClient) {}
+export class ExercisesService extends BaseService {
+  constructor(http: HttpClient) {
+    super(http);
+    this.BASE_URL += '/exercises/';
+  }
 
   postProduct(data: any) {
-    return this.http.post<any>(this.baseUrl, data);
+    return this.http.post<any>(this.BASE_URL, data);
   }
 
   getProduct() {
-    return this.http.get<any>(this.baseUrl);
+    return this.http.get<any>(this.BASE_URL);
   }
 
   updateProduct(data: any, id: number) {
-    return this.http.put<any>(this.baseUrl + id, data);
+    return this.http.put<any>(this.BASE_URL + id, data);
   }
 
   deleteProduct(id: number) {
-    return this.http.delete<any>(this.baseUrl + id);
+    return this.http.delete<any>(this.BASE_URL + id);
   }
 }

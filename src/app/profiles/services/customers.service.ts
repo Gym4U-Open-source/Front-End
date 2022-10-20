@@ -1,61 +1,41 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError, Observable, retry, throwError} from "rxjs";
-import {CustomerProfile} from "../model/customer-profile";
+import { HttpClient } from '@angular/common/http';
+import { catchError, Observable, retry, throwError } from 'rxjs';
+import { CustomerProfile } from '../model/customer-profile';
+import { BaseService } from 'src/app/shared/services/base.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class CustomersService {
-
-  basePath = 'https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/customers';
-
-  httpOptions = {
-    headers: new HttpHeaders( {
-      'Content-Type': 'application/json'
-    })
-  };
-  constructor(private http: HttpClient) { }
-
-  // API Error Handling
-  handleError(error: HttpErrorResponse) {
-    if (error.error instanceof  ErrorEvent) {
-      //Default Error Handling
-      console.log(`An error occurred: ${error.error.message}`);
-    } else{
-      // Unsuccessful Response Error Code returned from Backend
-      console.error(
-        `Backend returned code ${error.status}, body was: ${error.error}`
-      );
-    }
-    // Return observable with Error Message to Client
-    return throwError( () =>
-      new Error('Something happened with request, please try again later'));
+export class CustomersService extends BaseService {
+  constructor(http: HttpClient) {
+    super(http);
+    this.BASE_URL += '/customers/';
   }
 
-  //Get Client by Id
-  getById(id:any):Observable<CustomerProfile> {
-    return this.http.get<CustomerProfile> ( `${this.basePath}/${id}`, this.httpOptions)
+  getById(id: any): Observable<CustomerProfile> {
+    return this.http
+      .get<CustomerProfile>(`${this.BASE_URL}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  //Get All Clients
-  getAll():Observable<CustomerProfile> {
-    return this.http.get<CustomerProfile> (this.basePath, this.httpOptions)
+  getAll(): Observable<CustomerProfile> {
+    return this.http
+      .get<CustomerProfile>(this.BASE_URL, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  //Delete Client
-  delete(id:any):Observable<CustomerProfile> {
-    return this.http.delete<CustomerProfile> ( `${this.basePath}/${id}`, this.httpOptions)
+  delete(id: any): Observable<CustomerProfile> {
+    return this.http
+      .delete<CustomerProfile>(`${this.BASE_URL}/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   postCustomer(data: any) {
-    return this.http.post<any>(this.basePath, data);
+    return this.http.post<any>(this.BASE_URL, data);
   }
 
   updateCustomer(data: any, id: number) {
-    return this.http.put<any>(this.basePath + id, data);
+    return this.http.put<any>(this.BASE_URL + id, data);
   }
 }

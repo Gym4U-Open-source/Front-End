@@ -1,6 +1,6 @@
 import {Component, OnInit, inject, ViewChild, Inject} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, NgForm} from "@angular/forms";
-import {Post} from "../model/post";
+import {Post} from "../../models/post";
 import {MatTableDataSource} from "@angular/material/table";
 import {PostsService} from "../../services/posts.service";
 import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog'

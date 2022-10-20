@@ -2,20 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
   private userData!: any;
   public loginForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private api: UserService
   ) {}
 
   ngOnInit(): void {
@@ -31,8 +33,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.http.get<any>('https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/signupUser').subscribe(
-      (res) => {
+    this.api.getUsers().subscribe({
+      next: (res) => {
         const user = res.find((a: any) => {
           return (
             a.email === this.loginForm.value.email &&
@@ -42,16 +44,16 @@ export class LoginComponent implements OnInit {
         if (user) {
           console.log('Login Success');
           this.loginForm.reset();
-          let _tmp = { loggedIn: true, data: user };
-          localStorage.setItem('user', JSON.stringify(_tmp));
+          let _ = { loggedIn: true, data: user };
+          localStorage.setItem('user', JSON.stringify(_));
           window.location.reload();
         } else {
           console.log('User not found !!');
         }
       },
-      (err) => {
+      error: (err) => {
         console.log('Something went wrong !!');
-      }
-    );
+      },
+    });
   }
 }

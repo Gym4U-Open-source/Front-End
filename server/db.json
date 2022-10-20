@@ -17,6 +17,15 @@
       "email": "smith@gmail.com",
       "password": "Xyoyu157",
       "id": 2
+    },
+    {
+      "name": "Maskota",
+      "lastName": "Perro Gato",
+      "userType": "coachUser",
+      "coachFocus": "gymManager",
+      "email": "perroGato@bezkoder.com",
+      "password": "Xyoyu157",
+      "id": 3
     }
   ],
   "exercises": [
@@ -98,23 +107,21 @@
       "id": 7
     }
   ],
-
   "comments": [
     {
       "id": 1,
       "id_post": 1,
-      "description":"fasfkjashfkjhakjfhkjafhkjasfhkjafshkjafhs"
+      "description": "fasfkjashfkjhakjfhkjafhkjasfhkjafshkjafhs"
     },
     {
       "id": 2,
       "id_post": 1,
-      "description":"fasfkjashfkjhakjfhkjafhkjasfhkjafshkjafhs"
+      "description": "fasfkjashfkjhakjfhkjafhkjasfhkjafshkjafhs"
     },
     {
       "id": 2,
       "id_post": 1,
-      "description":"fasfkjashfkjhakjfhkjafhkjasfhkjafshkjafhs"
+      "description": "fasfkjashfkjhakjfhkjafhkjasfhkjafshkjafhs"
     }
   ]
-
 }

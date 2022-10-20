@@ -1,10 +1,10 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Post} from "../model/post";
+import {Post} from "../post";
 import {MatDialog} from '@angular/material/dialog';
 
 import {PostsService} from "../../services/posts.service";
-import {AddPostDialogComponent} from "../add-post-dialog/add-post-dialog.component";
-import {ViewPostCommentsComponent} from "../view-post-comments/view-post-comments.component";
+import {AddPostDialogComponent} from "../../components/add-post-dialog/add-post-dialog.component";
+import {ViewPostCommentsComponent} from "../../components/view-post-comments/view-post-comments.component";
 //import * as _ from "lodash";
 
 @Component({

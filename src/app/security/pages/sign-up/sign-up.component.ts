@@ -2,20 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignUpComponent implements OnInit {
   public signUpForm!: FormGroup;
   userCoachSelected: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private api: UserService
   ) {}
 
   ngOnInit(): void {
@@ -30,18 +32,16 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() {
-    this.http
-      .post<any>('https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/signupUser', this.signUpForm.value)
-      .subscribe(
-        (res) => {
-          console.log('Sign Up successful !!');
-          this.signUpForm.reset();
-          this.router.navigate(['login']);
-        },
-        (err) => {
-          console.log('Something went wrong !!');
-        }
-      );
+    this.api.postUser(this.signUpForm.value).subscribe({
+      next: (res) => {
+        console.log('Sign Up successful !!');
+        this.signUpForm.reset();
+        this.router.navigate(['login']);
+      },
+      error: (err) => {
+        console.log('Something went wrong !!');
+      },
+    });
   }
 
   selectUserType() {
