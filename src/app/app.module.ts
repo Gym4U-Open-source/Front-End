@@ -16,6 +16,8 @@ import { PostsComponent } from './components/posts/posts.component';
 import { CustomersComponent } from './profiles/pages/customers/customers.component';
 import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
 import { CustomerComponent } from './profiles/pages/customer/customer.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSelectModule} from "@angular/material/select";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,6 +51,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     MaterialModule,
     MatCardModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   exports: [RouterModule],
   providers: [],
