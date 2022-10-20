@@ -11,22 +11,25 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
       <td mat-cell *matCellDef="let element">{{ element.status }}</td>
     </ng-container>
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Workout</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    <ng-container matColumnDef="exercise">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Exercise</th>
+      <td mat-cell *matCellDef="let element">{{ element.exercise }}</td>
     </ng-container>
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date</th>
       <td mat-cell *matCellDef="let element">{{ element.date }}</td>
     </ng-container>
-    <ng-container matColumnDef="progress">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress</th>
-      <td mat-cell *matCellDef="let element">{{ element.progress }}</td>
+    <ng-container matColumnDef="sets">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Sets</th>
+      <td mat-cell *matCellDef="let element">{{ element.sets }}</td>
+    </ng-container>
+    <ng-container matColumnDef="timePerSet">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time Per Set</th>
+      <td mat-cell *matCellDef="let element">{{ element.timePerSet }}</td>
     </ng-container>
     <ng-container matColumnDef="options">
       <th  class="center" mat-header-cell *matHeaderCellDef> Options</th>
       <td  class="center" mat-cell *matCellDef="let element">
-        <a href="javascript:void(0)" routerLink="/customer-workout-exercises/{{element.id}}"><mat-icon class = "black-icon">directions_run</mat-icon></a>
         <a href="javascript:void(0)"><mat-icon class = "black-icon">visibility</mat-icon></a>
         <a href="javascript:void(0)"><mat-icon class = "black-icon">edit</mat-icon></a>
         <a href="javascript:void(0)" (click)="deleteItem(element.id)" ><mat-icon class = "black-icon">delete</mat-icon></a>

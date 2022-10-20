@@ -8,7 +8,7 @@ import {CustomerProfile} from "../model/customer-profile";
 })
 export class CustomersService {
 
-  basePath = 'https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1/customers';
+  basePath = 'http://localhost:3000/customers';
 
   httpOptions = {
     headers: new HttpHeaders( {
