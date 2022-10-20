@@ -8,17 +8,18 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './pages/free/signup/signup.component';
-import { LoginComponent } from './pages/free/login/login.component';
-import { ExercisesComponent } from './pages/auth/library/exercises/exercises.component';
-import { AddExerciseDialogComponent } from './components/add-exercise-dialog/add-exercise-dialog.component';
+import { SignupComponent} from "./Security/pages/signup/signup.component";
+import { LoginComponent} from "./Security/pages/login/login.component";
+import { ExercisesComponent} from "./Fitness/pages/exercises/exercises.component";
+import { AddExerciseDialogComponent} from "./Fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component";
 import { PostsComponent } from './components/posts/posts.component';
 import { CustomersComponent } from './profiles/pages/customers/customers.component';
 import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
 import { CustomerComponent } from './profiles/pages/customer/customer.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSelectModule} from "@angular/material/select";
-
+import { AddPostDialogComponent } from './components/add-post-dialog/add-post-dialog.component';
+import { ViewPostCommentsComponent } from './components/view-post-comments/view-post-comments.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -40,6 +41,8 @@ const routes: Routes = [
     CustomersComponent,
     AddCustomerDialogComponent,
     CustomerComponent,
+    AddPostDialogComponent,
+    ViewPostCommentsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
