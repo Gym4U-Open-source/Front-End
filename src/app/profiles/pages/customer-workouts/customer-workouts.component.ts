@@ -1,18 +1,18 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {WorkoutsCustomer} from "../../model/workouts-customer";
 import {MatTableDataSource} from "@angular/material/table";
 import {NgForm} from "@angular/forms";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {MatDialog} from "@angular/material/dialog";
 import {CustomerService} from "../../services/customer.service";
-import {WorkoutsCustomer} from "../../model/workouts-customer";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  selector: 'app-customer-workouts',
+  templateUrl: './customer-workouts.component.html',
+  styleUrls: ['./customer-workouts.component.css']
 })
-export class CustomerComponent implements OnInit {
+export class CustomerWorkoutsComponent implements OnInit {
 
   workoutsClientData: WorkoutsCustomer;
   dataSource: MatTableDataSource<any>;

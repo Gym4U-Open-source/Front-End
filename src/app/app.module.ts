@@ -14,16 +14,16 @@ import { ExercisesComponent } from './Fitness/pages/exercises/exercises.componen
 import { PostsComponent } from './components/posts/posts.component';
 import { CustomersComponent } from './profiles/pages/customers/customers.component';
 import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
-import { CustomerComponent } from './profiles/pages/customer/customer.component';
 import { AddExerciseDialogComponent } from './Fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
 import { HomeComponent } from './public/pages/home/home.component';
+import { CustomerWorkoutsComponent } from './profiles/pages/customer-workouts/customer-workouts.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'customers', component: CustomersComponent},
-  { path: 'customer', component: CustomerComponent},
+  { path: 'customer-workouts', component: CustomerWorkoutsComponent},
   { path: 'exercises', component: ExercisesComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'home', component: HomeComponent}
@@ -37,10 +37,10 @@ const routes: Routes = [
     PostsComponent,
     CustomersComponent,
     AddCustomerDialogComponent,
-    CustomerComponent,
     ExercisesComponent,
     AddExerciseDialogComponent,
-    HomeComponent
+    HomeComponent,
+    CustomerWorkoutsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -57,4 +57,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
