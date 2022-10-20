@@ -1,16 +1,28 @@
 <div>
-  <mat-card class="example-card2">
+  <mat-card class="example-card2" >
     <img mat-card-image class="mat-card1" src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-
+    <mat-card-content >
+      <mat-label>Leave a comment</mat-label>
       <mat-card-title>Gym4U</mat-card-title>
-      <mat-card-subtitle>Numero de Posts : 5</mat-card-subtitle>
+      <mat-card-subtitle > numero de posts : {{postArray.length}}</mat-card-subtitle>
     </mat-card-content>
-
   </mat-card>
   <br><br/>
 </div>
 
+<div class="add-post">
+  <mat-card class="example-card">
+    <button mat-button class="example-full-width1" (click)="addPostDialog()">
+      <mat-form-field class="example-full-width1">
+      <mat-label>Write something</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+    </button>
+    <mat-card-actions>
+      <button mat-button (click)="addPostDialog()" >Photo</button>
+    </mat-card-actions>
+  </mat-card><br>
+</div>
 
 <div class="container" *ngFor="let posts of postArray">
   <mat-card class="example-card">
@@ -22,13 +34,30 @@
     <img mat-card-image ="mat-card" [src]="posts.image_post" alt="image of a post">
     <mat-card-content>
       <p>
-        {{posts.post_desciption}}
+        {{posts.post_description}}
+
       </p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button (click)="viewPostComments()">View Comments</button>
     </mat-card-actions>
+
+    <form  #studentForm='ngForm'>
+      <mat-form-field class="example-full-width">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+
+
+      <ng-container *ngIf="true; else elseTemplate">
+        <button mat-raised-button color="primary" >Comment</button>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <button mat-button color="primary">Add</button>
+      </ng-template>
+    </form>
+
   </mat-card>
   <br><br/>
 </div>

@@ -4,5 +4,8 @@ export interface Post {
   role: string;
   image_post: string;
   image_perfil: string;
-  post_desciption: string;
+  post_description: string;
+  like: number;
+  //updated_at: Date;
+  //created_at: Date;
 }

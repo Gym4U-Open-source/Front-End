@@ -10,8 +10,8 @@ import {Post} from "../components/model/post";
 export class PostsService {
 //posts endpoint
 
-  basePath = 'http://localhost:3000/posts'
-
+  basePath = 'http://localhost:3000/api/v1/posts'
+  basePathC = 'http://localhost:3000/api/v1/comments'
   httpOptions={
     headers: new HttpHeaders({
       'Content-Type':'application/json'
@@ -39,5 +39,14 @@ export class PostsService {
     return this.http.get<Post>(this.basePath,this.httpOptions)
       .pipe(retry(2),catchError(this.handleError))
   }
+  addPost(data : any) {
+    return this.http.post<any>(this.basePath,data)
+  }
+  getAllComments():Observable<Post>{
+    return this.http.get<Post>(this.basePathC,this.httpOptions)
+      .pipe(retry(2),catchError(this.handleError))
+  }
+
+
 
 }

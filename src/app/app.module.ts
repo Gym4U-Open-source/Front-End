@@ -13,6 +13,10 @@ import { LoginComponent } from './pages/free/login/login.component';
 import { ExercisesComponent } from './pages/auth/library/exercises/exercises.component';
 import { AddExerciseDialogComponent } from './components/add-exercise-dialog/add-exercise-dialog.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { AddPostDialogComponent } from './components/add-post-dialog/add-post-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from "@angular/material/select";
+import { ViewPostCommentsComponent } from './components/view-post-comments/view-post-comments.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +34,8 @@ const routes: Routes = [
     ExercisesComponent,
     AddExerciseDialogComponent,
     PostsComponent,
+    AddPostDialogComponent,
+    ViewPostCommentsComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -41,6 +47,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     MaterialModule,
     MatCardModule,
+    MatDialogModule,
+    MatSelectModule
+
   ],
   exports: [RouterModule],
   providers: [],
