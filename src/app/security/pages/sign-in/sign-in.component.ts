@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class SignInComponent implements OnInit {
   private userData!: any;
   public loginForm!: FormGroup;
+  public loading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,6 +34,7 @@ export class SignInComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
     this.api.getUsers().subscribe({
       next: (res) => {
         const user = res.find((a: any) => {
@@ -43,15 +45,18 @@ export class SignInComponent implements OnInit {
         });
         if (user) {
           console.log('Login Success');
+          this.loading = false
           this.loginForm.reset();
           let _ = { loggedIn: true, data: user };
           localStorage.setItem('user', JSON.stringify(_));
           window.location.reload();
         } else {
           console.log('User not found !!');
+          this.loading = false;
         }
       },
       error: (err) => {
+        this.loading = false;
         console.log('Something went wrong !!');
       },
     });

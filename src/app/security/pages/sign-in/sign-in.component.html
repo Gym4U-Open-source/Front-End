@@ -32,9 +32,13 @@
           number: <span>+51 923553711</span>
         </p>
         <br />
-        <button type="submit" mat-flat-button color="primary" class="btn-login">
-          Login
-        </button>
+        <div class="loader">
+          <button *ngIf="!loading" type="submit" mat-flat-button color="primary" class="btn-login">
+            Login
+          </button>
+          <mat-spinner *ngIf="loading"></mat-spinner>
+        </div>
+
         <br />
       </form>
       <a routerLink="/signup">New User? Click to Sign Up </a>

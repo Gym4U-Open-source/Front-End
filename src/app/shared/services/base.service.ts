@@ -10,7 +10,7 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class BaseService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'https://6334e767ea0de5318a0a56dd.mockapi.io/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
