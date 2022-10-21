@@ -5,7 +5,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Workout} from "../../../Fitness/models/workout";
+import {ExerciseInstruction, Workout} from "../../../Fitness/models/workout";
 import {WorkoutsService} from "../../../Fitness/services/workouts.service";
 
 @Component({
@@ -51,6 +51,11 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
   }
 
   getAllWorkoutsClient(id: string | null) {
+    this.workoutService.getById(id).subscribe((response: Workout) => {
+      //console.log(response.workouts)
+      this.dataSource.data = response.exercises;
+      this.name = response.name;
+    });
     this.workoutService.getById(id).subscribe((response: Workout) => {
       //console.log(response.workouts)
       this.dataSource.data = response.exercises;

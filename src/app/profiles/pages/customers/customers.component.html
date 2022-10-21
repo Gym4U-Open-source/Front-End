@@ -47,7 +47,7 @@
         <a href="javascript:void(0)" routerLink="/customer-workouts/{{element.id}}"><mat-icon class = "black-icon">directions_run</mat-icon></a>
         <a href="javascript:void(0)"><mat-icon class = "black-icon">message</mat-icon></a>
         <a href="javascript:void(0)"><mat-icon class = "black-icon">visibility</mat-icon></a>
-        <a href="javascript:void(0)"><mat-icon class = "black-icon">edit</mat-icon></a>
+        <a href="javascript:void(0)" (click)="openDialog()"><mat-icon class = "black-icon">edit</mat-icon></a>
         <a href="javascript:void(0)" (click)="deleteItem(element.id)" ><mat-icon class = "black-icon">delete</mat-icon></a>
       </td>
     </ng-container>
