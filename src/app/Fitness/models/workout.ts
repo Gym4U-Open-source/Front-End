@@ -3,6 +3,7 @@ import {Exercice} from "./exercice.model";
 export interface  ExerciseInstruction {
   id: number;
   exercise: Exercice;
+  name: string;
   sets: number;
   timePerSet: number;
   status: string;

@@ -8,7 +8,8 @@ import {CustomerProfile} from "../model/customer-profile";
 })
 export class CustomersService {
 
-  basePath = 'http://localhost:3000/customers';
+  basePath = 'http://localhost:3000/customers/';
+  basePath2 = 'http://localhost:3000/customers/${id}/workouts';
 
   httpOptions = {
     headers: new HttpHeaders( {

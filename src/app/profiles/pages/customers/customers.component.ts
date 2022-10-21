@@ -18,7 +18,7 @@ export class CustomersComponent implements OnInit {
 
   customerData: CustomerProfile;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'name', 'lastName', 'email','last7dTraining','last1mTraining','last7dTasks', 'options'];
+  displayedColumns: string[] = ['id', 'name', 'lastName', 'email','last7dTraining','last1mTraining', 'options'];
 
   @ViewChild('studentForm', {static:false})
   studentForm! : NgForm;
@@ -57,6 +57,11 @@ export class CustomersComponent implements OnInit {
   getAllClients() {
     this.customerService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
+      /*
+      response.forEach((element: any) => {
+        console.log(element);
+      })
+      */
     });
   }
   deleteItem(id: number){

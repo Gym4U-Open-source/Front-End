@@ -72,6 +72,7 @@
         "custom": true,
         "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
       },
+      "name": "Planchas",
       "sets": 3,
       "timePerSet": 30,
       "status": "Pending"
@@ -87,6 +88,7 @@
         "custom": "true",
         "id": 4
       },
+      "name": "Reverse Plank Leg Raises",
       "sets": 3,
       "timePerSet": 60,
       "status": "Pending"
@@ -109,6 +111,7 @@
             "custom": true,
             "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
           },
+          "name": "Planchas",
           "sets": 3,
           "timePerSet": 30,
           "status": "Pending",
@@ -125,6 +128,7 @@
             "custom": "true",
             "id": 4
           },
+          "name": "Reverse Plank Leg Raises",
           "sets": 3,
           "timePerSet": 60,
           "status": "Pending",
@@ -272,6 +276,18 @@
           ],
           "status": "Pending",
           "date": "28/11/2022"
+        },
+        {
+          "date": "date",
+          "workout": "workout"
+        },
+        {
+          "date": "date",
+          "workout": "workout"
+        },
+        {
+          "date": "date",
+          "workout": "workout"
         }
       ]
     },
@@ -280,12 +296,6 @@
       "name": "name 1",
       "lastName": "lastName 1",
       "email": "email 1"
-    },
-    {
-      "name": "Breydi",
-      "lastName": "lastname",
-      "email": "email",
-      "id": 4
     }
   ]
 }

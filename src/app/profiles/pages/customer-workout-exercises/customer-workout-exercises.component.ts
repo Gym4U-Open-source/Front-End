@@ -7,6 +7,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ExerciseInstruction, Workout} from "../../../Fitness/models/workout";
 import {WorkoutsService} from "../../../Fitness/services/workouts.service";
+import {ExercisesService} from "../../../Fitness/services/exercises.service";
+import {Exercice} from "../../../Fitness/models/exercice.model";
 
 @Component({
   selector: 'app-customer-workout-exercises',
@@ -17,7 +19,7 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
 
   workoutsClientData: Workout;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'status', 'exercise', 'date', 'sets', 'timePerSet', 'options'];
+  displayedColumns: string[] = ['id', 'status', 'name', 'date', 'sets', 'timePerSet', 'options'];
 
 
   @ViewChild('workoutsClientForm', {static: false})
@@ -33,6 +35,7 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
   name = ''
 
   constructor(private workoutService: WorkoutsService,
+              private exerciseService: ExercisesService,
               public dialog: MatDialog,
               private router: Router, private route: ActivatedRoute) {
 
@@ -41,7 +44,12 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
     this.dataSource = new MatTableDataSource<any>();
   }
 
+  getId(){
+    return this.id;
+  }
+
   ngOnInit(): void {
+    this.updatesNames();
     this.dataSource.paginator = this.paginator;
     this.getAllWorkoutsClient(this.id)
   }
@@ -51,17 +59,62 @@ export class CustomerWorkoutExercisesComponent implements OnInit {
   }
 
   getAllWorkoutsClient(id: string | null) {
-    this.workoutService.getById(id).subscribe((response: Workout) => {
-      //console.log(response.workouts)
-      this.dataSource.data = response.exercises;
-      this.name = response.name;
-    });
-    this.workoutService.getById(id).subscribe((response: Workout) => {
-      //console.log(response.workouts)
+    this.workoutService.getById(id).subscribe((response: Workout | any) => {
+      /*
+      response.forEach((element : Workout) => {
+        console.log(element);
+
+        this.workoutService.getAllExercisesInstructions().subscribe((resp: ExerciseInstruction | any) => {
+          resp.forEach((element2 : ExerciseInstruction) => {
+            element2.name = element2.exercise.name
+          })
+        })
+
+
+      })*/
+      console.log(response)
       this.dataSource.data = response.exercises;
       this.name = response.name;
     });
   }
+
+  updatesNames() {
+    this.workoutService.getAllExercisesInstructions().subscribe((response: ExerciseInstruction | any) => {
+      response.forEach((element : ExerciseInstruction) => {
+        console.log(element);
+        element.name = element.exercise.name;
+        this.workoutService.update(element,element.id).subscribe({
+          next: (res) => {
+            console.log('update');
+          },
+          error: (err) => {
+            console.log('Something went wrong');
+          },
+        })
+      })
+      console.log(response);
+    });
+  }
+
+  /*
+  getExerciseInstruction(id: string | null){
+    this.workoutService.getAllExercisesInstructions().subscribe((response: ExerciseInstruction | any) => {
+      response.forEach((element : ExerciseInstruction) => {
+        if(element.exercise.name = id){
+
+          return  }
+      })
+    })
+  }
+
+  getNameExercise(id: string | null){
+    this.exerciseService.getProduct().subscribe((response: Exercice | any) => {
+      response.forEach((element : Exercice) => {
+        if(element.id = id){ return element.name }
+      })
+    })
+  }
+  */
 
   deleteItem(id: number) {
     this.workoutService.delete(id).subscribe(() => {

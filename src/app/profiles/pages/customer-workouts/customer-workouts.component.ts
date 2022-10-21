@@ -56,13 +56,13 @@ export class CustomerWorkoutsComponent implements OnInit {
   constructor(private workoutCustomerService: CustomersService,
               public dialog: MatDialog,
               private router: Router, private route: ActivatedRoute) {
-
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = "";
     this.workoutsClientData = {} as CustomerProfile;
     this.dataSource = new MatTableDataSource<any>();
   }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
     this.dataSource.paginator = this.paginator;
     this.getAllWorkoutsClient(this.id)
   }
@@ -90,6 +90,7 @@ export class CustomerWorkoutsComponent implements OnInit {
   openDialog() {
     this.dialog
       .open(AddCustomerWorkoutDialogComponent, {
+        data: this.id,
         width: '432px',
       })
       .afterClosed()

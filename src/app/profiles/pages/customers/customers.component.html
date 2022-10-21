@@ -10,7 +10,6 @@
 
   &nbsp;
 
-
   <!-- Data Table -->
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="id">
@@ -36,10 +35,6 @@
     <ng-container matColumnDef="last1mTraining">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Last 1m Training</th>
       <td mat-cell *matCellDef="let element">{{ element.last1mTraining }}</td>
-    </ng-container>
-    <ng-container matColumnDef="last7dTasks">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last 7d Tasks</th>
-      <td mat-cell *matCellDef="let element">{{ element.last7dTasks }}</td>
     </ng-container>
     <ng-container matColumnDef="options">
       <th  class="center" mat-header-cell *matHeaderCellDef> Options</th>

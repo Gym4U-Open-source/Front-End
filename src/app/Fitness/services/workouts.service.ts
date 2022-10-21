@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
 import {ExerciseInstruction, Workout} from "../models/workout";
 import {CustomerProfile} from "../../profiles/model/customer-profile";
+import {ExercisesService} from "./exercises.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import {CustomerProfile} from "../../profiles/model/customer-profile";
 export class WorkoutsService {
 
   basePath = 'http://localhost:3000/workout';
+  basePath2 = 'http://localhost:3000/exerciseInstruction/';
 
   httpOptions = {
     headers: new HttpHeaders( {
@@ -46,8 +48,17 @@ export class WorkoutsService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  update(data: any, id: number) {
+    return this.http.put<any>(this.basePath2 + id, data);
+  }
+
   getAll():Observable<Workout> {
     return this.http.get<Workout> (this.basePath, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getAllExercisesInstructions():Observable<ExerciseInstruction> {
+    return this.http.get<ExerciseInstruction> (this.basePath2, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

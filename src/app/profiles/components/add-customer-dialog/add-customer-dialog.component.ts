@@ -23,7 +23,7 @@ export class AddCustomerDialogComponent implements OnInit {
   ngOnInit(): void {
     this.customerForm = this.formbuilder.group({
       name: ['name', Validators.required],
-      lastName: ['lastname', Validators.required],
+      lastName: ['lastName', Validators.required],
       email: ['email', Validators.required],
     });
 
@@ -32,6 +32,7 @@ export class AddCustomerDialogComponent implements OnInit {
 
   addCustomer() {
     if (this.customerForm.valid) {
+      console.log(this.customerForm.value);
       this.api.postCustomer(this.customerForm.value).subscribe({
         next: (res) => {
           this.customerForm.reset();
