@@ -50,6 +50,59 @@
       "assetUrl": "https://i.pinimg.com/originals/d0/54/1b/d0541bb653319a56a5d876e3eabb319a.gif"
     }
   ],
+  "workouts": [
+  {
+    "id": 1,
+    "userId": 1,
+    "title": "Workout for men",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "exercises": 4,
+    "updateAt": "2022-07-23T18:25:43.511Z",
+    "tag": "noob",
+    "owner": "Nikita Sirmitev"
+  },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Workout for women",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 4,
+      "updateAt": "2022-09-23T18:25:43.511Z",
+      "tag": "advance",
+      "owner":"maria nolpenki"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "Workout for You!",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 15,
+      "updateAt": "2022-08-23T18:25:43.511Z",
+      "tag": "noob",
+      "owner": "Angel Deus"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "title": "Workout for Strong men",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 2,
+      "updateAt": "2022-09-23T18:25:43.511Z",
+      "tag": "advance",
+      "owner":"Clinder Gomez"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "title": "Workout for Strong men",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 2,
+      "updateAt": "2022-08-23T18:25:43.511Z",
+      "tag": "noob",
+      "owner":"Marcos"
+    }
+  ],
+
   "posts": [
     {
       "id": 1,

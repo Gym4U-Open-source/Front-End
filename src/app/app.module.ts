@@ -10,7 +10,7 @@ import { MaterialModule } from 'src/material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ExercisesComponent} from "./Fitness/pages/exercises/exercises.component";
 import { AddExerciseDialogComponent} from "./Fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component";
-import { PostsComponent } from './comunity/models/posts/posts.component';
+import { PostsComponent } from './comunity/pages/posts/posts.component';
 import { CustomersComponent } from './profiles/pages/customers/customers.component';
 import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
 import { CustomerComponent } from './profiles/pages/customer/customer.component';
@@ -20,6 +20,7 @@ import { AddPostDialogComponent } from './comunity/components/add-post-dialog/ad
 import { ViewPostCommentsComponent } from './comunity/components/view-post-comments/view-post-comments.component';
 import { SignInComponent } from './security/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './security/pages/sign-up/sign-up.component';
+import { WorkoutsComponent } from './Fitness/pages/workouts/workouts.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: SignInComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'customers', component: CustomersComponent},
   { path: 'customer', component: CustomerComponent},
   { path: 'exercises', component: ExercisesComponent },
+  { path: 'workouts', component: WorkoutsComponent },
   { path: 'posts', component: PostsComponent }
 ];
 
@@ -42,7 +44,8 @@ const routes: Routes = [
     AddPostDialogComponent,
     ViewPostCommentsComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    WorkoutsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

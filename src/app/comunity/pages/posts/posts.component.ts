@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {Post} from "../post";
+import {Post} from "../../models/post";
 import {MatDialog} from '@angular/material/dialog';
 
 import {PostsService} from "../../services/posts.service";
