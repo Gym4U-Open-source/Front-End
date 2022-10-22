@@ -1,0 +1,60 @@
+<div class="container">
+  <h1 class="title">{{name}}</h1>
+
+  <mat-grid-list cols="3" rowHeight="75px" class="title">
+    <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color"
+      [style.border]="tile.border">
+      {{tile.text}}
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  &nbsp;
+
+  <div>
+    <button mat-stroked-button (click)="openDialog()" class="btn-auth" >
+      + Assign new workout
+    </button>
+  </div>
+
+  &nbsp;
+  <!-- Data Table -->
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
+      <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Workout</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="progress">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress</th>
+      <td mat-cell *matCellDef="let element">{{ element.progress }}</td>
+    </ng-container>
+    <ng-container matColumnDef="options">
+      <th  class="center" mat-header-cell *matHeaderCellDef> Options</th>
+      <td  class="center" mat-cell *matCellDef="let element">
+        <a href="javascript:void(0)" routerLink="/customer-workout-exercises/{{element.id}}"><mat-icon class = "black-icon">directions_run</mat-icon></a>
+        <a href="javascript:void(0)"><mat-icon class = "black-icon">visibility</mat-icon></a>
+        <a href="javascript:void(0)"><mat-icon class = "black-icon">edit</mat-icon></a>
+        <a href="javascript:void(0)"><mat-icon class = "black-icon">delete</mat-icon></a>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{'editable-row': workoutsClientData.id === row.id}"></tr>
+  </table>
+  <!-- Paginator Child Component -->
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+</div>

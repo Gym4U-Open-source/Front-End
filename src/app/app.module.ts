@@ -8,27 +8,34 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
 import { RouterModule, Routes } from '@angular/router';
-import { ExercisesComponent} from "./Fitness/pages/exercises/exercises.component";
-import { AddExerciseDialogComponent} from "./Fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component";
+import { ExercisesComponent } from './fitness/pages/exercises/exercises.component';
+import { AddExerciseDialogComponent } from './fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
 import { PostsComponent } from './comunity/models/posts/posts.component';
 import { CustomersComponent } from './profiles/pages/customers/customers.component';
 import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
-import { CustomerComponent } from './profiles/pages/customer/customer.component';
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatSelectModule} from "@angular/material/select";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { AddPostDialogComponent } from './comunity/components/add-post-dialog/add-post-dialog.component';
 import { ViewPostCommentsComponent } from './comunity/components/view-post-comments/view-post-comments.component';
 import { SignInComponent } from './security/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './security/pages/sign-up/sign-up.component';
 import { ChatBoxComponent } from './comunity/pages/chat-box/chat-box.component';
+import { WorkoutsComponent } from './fitness/pages/workouts/workouts.component';
+import { CustomerWorkoutsComponent } from './profiles/pages/customer-workouts/customer-workouts.component';
+import { CustomerWorkoutExercisesComponent } from './profiles/pages/customer-workout-exercises/customer-workout-exercises.component';
+import { AddCustomerWorkoutDialogComponent } from './profiles/components/add-customer-workout-dialog/add-customer-workout-dialog.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },
+  { path: 'customers', component: CustomersComponent },
   { path: 'customers', component: CustomersComponent},
-  { path: 'customer', component: CustomerComponent},
+  { path: 'customer-workouts/:id', component: CustomerWorkoutsComponent},
+  { path: 'customer-workout-exercises/:id', component: CustomerWorkoutExercisesComponent},
   { path: 'exercises', component: ExercisesComponent },
-  { path: 'posts', component: PostsComponent }
+  { path: 'posts', component: PostsComponent },
+  { path: 'workouts', component: WorkoutsComponent },
 ];
 
 @NgModule({
@@ -39,12 +46,15 @@ const routes: Routes = [
     PostsComponent,
     CustomersComponent,
     AddCustomerDialogComponent,
-    CustomerComponent,
     AddPostDialogComponent,
     ViewPostCommentsComponent,
     SignInComponent,
     SignUpComponent,
-    ChatBoxComponent
+    ChatBoxComponent,
+    WorkoutsComponent,
+    CustomerWorkoutsComponent,
+    CustomerWorkoutExercisesComponent,
+    AddCustomerWorkoutDialogComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -57,7 +67,7 @@ const routes: Routes = [
     MaterialModule,
     MatCardModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   exports: [RouterModule],
   providers: [],

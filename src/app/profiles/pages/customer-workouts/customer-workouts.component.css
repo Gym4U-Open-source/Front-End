@@ -11,6 +11,22 @@
   padding-top: 52px;
 }
 
+table {
+  width: 100%;
+}
+
+.black-icon {
+  color: black;
+}
+
+.th {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
 .title {
   font-style: normal;
   font-weight: 500;
@@ -30,18 +46,3 @@
   align: left;
 }
 
-table {
-  width: 100%;
-}
-
-.black-icon {
-  color: black;
-}
-
-.th {
-  text-align: center;
-}
-
-.center {
-  text-align: center;
-}

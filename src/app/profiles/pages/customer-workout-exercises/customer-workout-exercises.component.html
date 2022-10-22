@@ -1,5 +1,5 @@
-<div class="table-wrapper">
-  <h1>Juan Palacios</h1>
+<div class="container">
+  <h1 class="title">{{name}}</h1>
 
   <!-- Data Table -->
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
@@ -11,17 +11,21 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
       <td mat-cell *matCellDef="let element">{{ element.status }}</td>
     </ng-container>
-    <ng-container matColumnDef="workout">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Workout</th>
-      <td mat-cell *matCellDef="let element">{{ element.workout }}</td>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Exercise</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date</th>
       <td mat-cell *matCellDef="let element">{{ element.date }}</td>
     </ng-container>
-    <ng-container matColumnDef="progress">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress</th>
-      <td mat-cell *matCellDef="let element">{{ element.progress }}</td>
+    <ng-container matColumnDef="sets">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Sets</th>
+      <td mat-cell *matCellDef="let element">{{ element.sets }}</td>
+    </ng-container>
+    <ng-container matColumnDef="timePerSet">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time Per Set</th>
+      <td mat-cell *matCellDef="let element"> {{ element.timePerSet }}</td>
     </ng-container>
     <ng-container matColumnDef="options">
       <th  class="center" mat-header-cell *matHeaderCellDef> Options</th>
