@@ -25,6 +25,7 @@ export class AddCustomerDialogComponent implements OnInit {
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
+      workouts: [[]],
     });
 
     console.log(this.editData);

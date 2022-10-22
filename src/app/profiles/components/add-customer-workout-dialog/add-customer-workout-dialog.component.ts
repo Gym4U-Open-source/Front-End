@@ -20,6 +20,8 @@ export class AddCustomerWorkoutDialogComponent implements OnInit{
   customerForm!: FormGroup;
   actionBtn: string = 'Save';
   workouts: Workout[];
+  name: string;
+  id: number;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -29,26 +31,27 @@ export class AddCustomerWorkoutDialogComponent implements OnInit{
     private dialogRef: MatDialogRef<AddCustomerWorkoutDialogComponent>
   ) {
     this.workouts = [];
+    this.name = "Cardio";
+    this.id = 1;
   }
 
   ngOnInit(): void {
-    this.getAllWorkouts(),
+    this.getAllWorkouts();
     this.customerForm = this.formbuilder.group({
+      id: [this.id],
       date: ['date', Validators.required],
+      name: [this.name],
       workout: ['workout', Validators.required],
+      status: ['Pending']
     });
   }
-
 
   addWorkout() {
     console.log(this.editData);
     if(this.customerForm.valid) {
-      console.log('pipipipi');
-      console.log(this.editData);
       console.log(this.customerForm.value)
 
       this.api.getById(this.editData).subscribe((response: CustomerProfile) => {
-        console.log('pipipipi');
         response.workouts.push(this.customerForm.value)
         this.api.updateCustomer(response, this.editData).subscribe({
           next: (res) => {
@@ -62,8 +65,8 @@ export class AddCustomerWorkoutDialogComponent implements OnInit{
       })
     }
     else {
-      console.log('pipipipi');
-}
+      console.log('update');
+    }
   }
 
   addCustomer() {

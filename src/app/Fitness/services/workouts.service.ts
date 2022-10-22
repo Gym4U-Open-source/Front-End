@@ -12,6 +12,7 @@ export class WorkoutsService {
 
   basePath = 'http://localhost:3000/workout';
   basePath2 = 'http://localhost:3000/exerciseInstruction/';
+  basePath3 = 'http://localhost:3000/workoutCreated/';
 
   httpOptions = {
     headers: new HttpHeaders( {

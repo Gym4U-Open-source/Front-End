@@ -15,5 +15,6 @@ export interface Workout{
   name: string;
   exercises: ExerciseInstruction[];
   status: string;
-  date: string;
+  date: Date;
 }
+

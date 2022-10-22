@@ -4,14 +4,14 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Workout</mat-label>
-      <mat-select formControlWorkout="workout" placeholder="Workout">
-        <mat-option *ngFor="let workout of workouts" value="workout">{{workout.name}}</mat-option>
+      <mat-select formControlName="workout" placeholder="Workout">
+        <mat-option *ngFor="let workout of workouts" [value] = workout.exercises>{{workout.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Choose a date</mat-label>
-      <input formControlDate="date" placeholder="date" matInput [matDatepicker]="picker">
+      <input formControlName="date" placeholder="date" matInput [matDatepicker]="picker">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

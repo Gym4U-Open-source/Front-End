@@ -246,18 +246,17 @@
                 "id": 4
               },
               "sets": 3,
-              "timePerSet": 60,
-              "status": "Pending",
-              "date": "28/11/2022"
+              "timePerSet": 60
             }
           ],
           "status": "Pending",
           "date": "28/11/2022"
         },
         {
-          "id": 2,
-          "name": "Cardio Extremo",
-          "exercises": [
+          "id": 0,
+          "date": "2022-10-11T05:00:00.000Z",
+          "name": "Puta",
+          "workout": [
             {
               "id": 1,
               "exercise": {
@@ -271,23 +270,12 @@
                 "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
               },
               "sets": 3,
-              "timePerSet": 30
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
             }
           ],
-          "status": "Pending",
-          "date": "28/11/2022"
-        },
-        {
-          "date": "date",
-          "workout": "workout"
-        },
-        {
-          "date": "date",
-          "workout": "workout"
-        },
-        {
-          "date": "date",
-          "workout": "workout"
+          "status": "Pending"
         }
       ]
     },
@@ -298,10 +286,95 @@
       "id": 2
     },
     {
-      "name": "f23f32",
-      "lastName": "lastName",
-      "email": "email 24",
-      "id": 3
+      "name": "Juan Manuel",
+      "lastName": "Palacios ",
+      "email": "JMP@gmail.com",
+      "workouts": [
+        {
+          "id": 0,
+          "date": "2022-10-18T05:00:00.000Z",
+          "name": "Puta",
+          "workout": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            }
+          ],
+          "status": "Pending"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "ihiu",
+      "lastName": "juon",
+      "email": "uon",
+      "workouts": [
+        {
+          "id": 0,
+          "date": "2022-10-25T05:00:00.000Z",
+          "name": "Puta",
+          "workout": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            }
+          ],
+          "status": "Pending"
+        },
+        {
+          "id": 0,
+          "date": "2022-10-18T05:00:00.000Z",
+          "name": null,
+          "workout": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            }
+          ],
+          "status": "Pending"
+        }
+      ],
+      "id": 5
     }
   ]
 }

@@ -11,6 +11,8 @@ import {AddCustomerDialogComponent} from "../../components/add-customer-dialog/a
 import {
   AddCustomerWorkoutDialogComponent
 } from "../../components/add-customer-workout-dialog/add-customer-workout-dialog.component";
+import {CustomerWorkoutExercisesComponent} from "../customer-workout-exercises/customer-workout-exercises.component";
+import {WorkoutsService} from "../../../Fitness/services/workouts.service";
 
 export interface Tile {
   color: string;
@@ -54,6 +56,7 @@ export class CustomerWorkoutsComponent implements OnInit {
   name = ''
 
   constructor(private workoutCustomerService: CustomersService,
+              private workoutService: WorkoutsService,
               public dialog: MatDialog,
               private router: Router, private route: ActivatedRoute) {
     this.id = "";
@@ -76,14 +79,6 @@ export class CustomerWorkoutsComponent implements OnInit {
       //console.log(response.workouts)
       this.dataSource.data = response.workouts;
       this.name = response.name + ' ' + response.lastName;
-    });
-  }
-
-  deleteItem(id: number) {
-    this.workoutCustomerService.delete(id).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter((o: CustomerProfile) => {
-        return o.id !== id ? o : false
-      })
     });
   }
 
