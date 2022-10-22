@@ -20,6 +20,7 @@ import { AddPostDialogComponent } from './comunity/components/add-post-dialog/ad
 import { ViewPostCommentsComponent } from './comunity/components/view-post-comments/view-post-comments.component';
 import { SignInComponent } from './security/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './security/pages/sign-up/sign-up.component';
+import { ChatBoxComponent } from './comunity/pages/chat-box/chat-box.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: SignInComponent },
@@ -42,7 +43,8 @@ const routes: Routes = [
     AddPostDialogComponent,
     ViewPostCommentsComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ChatBoxComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
