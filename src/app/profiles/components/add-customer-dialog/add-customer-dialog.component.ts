@@ -22,26 +22,34 @@ export class AddCustomerDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerForm = this.formbuilder.group({
-      name: ['name', Validators.required],
-      lastName: ['lastName', Validators.required],
-      email: ['email', Validators.required],
+      name: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
     });
 
+    console.log(this.editData);
+    if (this.editData) {
+      this.actionBtn = 'Update';
+      this.customerForm.controls['name'].setValue(this.editData.name);
+      this.customerForm.controls['lastName'].setValue(this.editData.lastName);
+      this.customerForm.controls['email'].setValue(this.editData.email);
+    }
 
   }
 
   addCustomer() {
-    if (this.customerForm.valid) {
-      console.log(this.customerForm.value);
-      this.api.postCustomer(this.customerForm.value).subscribe({
-        next: (res) => {
-          this.customerForm.reset();
-          this.dialogRef.close('save');
-        },
-        error: () => {
-          console.log('Error while adding the exercise');
-        },
-      });
+    if(!this.editData) {
+      if (this.customerForm.valid) {
+        this.api.postCustomer(this.customerForm.value).subscribe({
+          next: (res) => {
+            this.customerForm.reset();
+            this.dialogRef.close('save');
+          },
+          error: () => {
+            console.log('Error while adding the exercise');
+          },
+        });
+      }
     } else {
       console.log('update');
       this.updateCustomer();

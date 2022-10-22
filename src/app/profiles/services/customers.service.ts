@@ -41,7 +41,7 @@ export class CustomersService {
   }
 
   //Get All Clients
-  getAll():Observable<CustomerProfile> {
+  getAll():Observable<any> {
     return this.http.get<CustomerProfile> (this.basePath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

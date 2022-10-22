@@ -17,22 +17,19 @@ import {AddCustomerDialogComponent} from "../../components/add-customer-dialog/a
 export class CustomersComponent implements OnInit {
 
   customerData: CustomerProfile;
-  dataSource: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'name', 'lastName', 'email','last7dTraining','last1mTraining', 'options'];
 
-  @ViewChild('studentForm', {static:false})
-  studentForm! : NgForm;
+  //@ViewChild('studentForm', {static:false}) studentForm! : NgForm;
 
-  @ViewChild(MatPaginator, {static: true})
-  paginator!:MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator!:MatPaginator;
 
-  @ViewChild(MatSort)
-  sort!: MatSort;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private customerService: CustomersService,
               public dialog: MatDialog) {
     this.customerData = {} as CustomerProfile;
-    this.dataSource = new MatTableDataSource<any>();
+    //this.dataSource = new MatTableDataSource<any>();
   }
 
   openDialog() {
@@ -48,22 +45,50 @@ export class CustomersComponent implements OnInit {
       });
   }
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
     this.getAllClients();
   }
+  /*
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
+
+   */
   getAllClients() {
-    this.customerService.getAll().subscribe((response: any) => {
+    this.customerService.getAll().subscribe({
+      next:(res) =>{
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error: (err) => {
+        console.log('Error while fetching the Records!!')
+      },
+
+      /*(response: any) => {
       this.dataSource.data = response;
-      /*
+
       response.forEach((element: any) => {
         console.log(element);
       })
       */
     });
   }
+
+  editCustomer(row: any) {
+    this.dialog
+      .open(AddCustomerDialogComponent, {
+        width: '432px',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if( val === 'update'){
+          this.getAllClients();
+        }
+      })
+  }
+
   deleteItem(id: number){
     this.customerService.delete(id).subscribe(()=>{
       this.dataSource.data = this.dataSource.data.filter((o:CustomerProfile) => {return o.id !== id ? o : false})
