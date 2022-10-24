@@ -103,8 +103,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "Front-End:build:production",
-            "firebaseProject": "gym4u-v1",
-            "firebaseHostingSite": "gym4u-v1"
+            "firebaseProject": "gym-v3",
+            "firebaseHostingSite": "gym-v3"
           }
         }
       }

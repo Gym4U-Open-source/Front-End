@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+// CUSTOM MODULES
 import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
-import { RouterModule, Routes } from '@angular/router';
 import { ExercisesComponent } from './fitness/pages/exercises/exercises.component';
 import { AddExerciseDialogComponent } from './fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
 import { PostsComponent } from './comunity/models/posts/posts.component';
@@ -24,23 +25,17 @@ import { WorkoutsComponent } from './fitness/pages/workouts/workouts.component';
 import { CustomerWorkoutsComponent } from './profiles/pages/customer-workouts/customer-workouts.component';
 import { CustomerWorkoutExercisesComponent } from './profiles/pages/customer-workout-exercises/customer-workout-exercises.component';
 import { AddCustomerWorkoutDialogComponent } from './profiles/components/add-customer-workout-dialog/add-customer-workout-dialog.component';
+import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
+import { HomeComponent } from './public/pages/home/home.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'login', component: SignInComponent },
-  { path: 'signup', component: SignUpComponent },
-  { path: 'customers', component: CustomersComponent },
-  { path: 'customers', component: CustomersComponent},
-  { path: 'customer-workouts/:id', component: CustomerWorkoutsComponent},
-  { path: 'customer-workout-exercises/:id', component: CustomerWorkoutExercisesComponent},
-  { path: 'exercises', component: ExercisesComponent },
-  { path: 'posts', component: PostsComponent },
-  { path: 'workouts', component: WorkoutsComponent },
-];
+// ROUTES
+import { AppRoutingModule } from './app-routing-module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    PageNotFoundComponent,
+    HomeComponent,
     ExercisesComponent,
     AddExerciseDialogComponent,
     PostsComponent,
@@ -54,10 +49,10 @@ const routes: Routes = [
     WorkoutsComponent,
     CustomerWorkoutsComponent,
     CustomerWorkoutExercisesComponent,
-    AddCustomerWorkoutDialogComponent
+    AddCustomerWorkoutDialogComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
@@ -69,7 +64,6 @@ const routes: Routes = [
     MatDialogModule,
     MatSelectModule,
   ],
-  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })

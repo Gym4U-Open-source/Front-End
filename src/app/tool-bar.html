@@ -1,51 +1,59 @@
-<nav class="nav-var font-baloo2">
-    <button mat-icon-button class="btn-menu">
-      <mat-icon>menu</mat-icon>
+<!-- Toolbar CSS -->
+<mat-toolbar>
+  <button mat-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img
+    mat-card-image
+    routerLink="/home"
+    src="https://i.ibb.co/WWXTnGH/logo.png"
+    alt="Gym4U"
+    class="logo"
+  />
+  <span class="spacer"></span>
+  <div class="browser">
+    <mat-icon>search</mat-icon>
+    <input
+      type="text"
+      placeholder="Look for posts  ..."
+      [formControl]="control"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let street of filteredStreets | async"
+        [value]="street"
+      >
+        {{ street }}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+  <span class="spacer"></span>
+  <div *ngIf="!userData.loggedIn">
+    <button mat-stroked-button routerLink="/signin" class="btn btn-signIn">
+      Sign in
     </button>
-    <div routerLink="/" class="nav-item">
-      <img src="https://i.ibb.co/WWXTnGH/logo.png" alt="Gym4U" class="img-p" />
+    <button
+      mat-flat-button
+      routerLink="/signup"
+      color="primary"
+      class="btn btn-signUp"
+    >
+      Sign up
+    </button>
+  </div>
+  <span class="spacer-profile"></span>
+  <div class="profile" *ngIf="userData.loggedIn" [matMenuTriggerFor]="appMenu">
+    <mat-icon>keyboard_arrow_down</mat-icon>
+    <img
+      mat-card-image
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU"
+      alt="Profile"
+      class="image"
+    />
+    <div class="data">
+      {{ userData.data.name }} {{ userData.data.lastName }}<br />
+      <span class="role">{{ userData.data.userType }}</span>
     </div>
-    <div class="browser">
-      <mat-icon class="browser-icon">search</mat-icon>
-      <input
-        type="text"
-        class="browser-input"
-        placeholder="Look for posts  ..."
-        [formControl]="control"
-        [matAutocomplete]="auto"
-      />
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option
-          *ngFor="let street of filteredStreets | async"
-          [value]="street"
-        >
-          {{ street }}
-        </mat-option>
-      </mat-autocomplete>
-    </div>
-    <div class="nav-auth" *ngIf="!userData.loggedIn">
-      <button
-        mat-stroked-button
-        routerLink="/login"
-        class="btn-auth btn-color-signIn"
-      >
-        Sign in
-      </button>
-      <button
-        mat-flat-button
-        routerLink="/signup"
-        color="primary"
-        class="btn-auth btn-color-signUp bg-gradient-to-r"
-      >
-        Sign up
-      </button>
-    </div>
-    <div class="nav-auth" *ngIf="userData.loggedIn">
-      <div>
-        {{ userData.data.name }} {{ userData.data.lastName }} <br />
-        {{ userData.data.userType }}
-      </div>
-      <button (click)="logout()" mat-flat-button color="primary">Log out</button>
-    </div>
-  </nav>
-  <router-outlet></router-outlet>
+  </div>
+</mat-toolbar>
