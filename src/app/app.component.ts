@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Workouts',
-      icon: 'view_comfy',
+      icon: 'grid_on',
       link: 'workouts',
       isActive: false,
     },

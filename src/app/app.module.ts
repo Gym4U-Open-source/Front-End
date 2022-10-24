@@ -30,6 +30,7 @@ import { HomeComponent } from './public/pages/home/home.component';
 
 // ROUTES
 import { AppRoutingModule } from './app-routing-module';
+import { PostCardComponent } from './comunity/components/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AppRoutingModule } from './app-routing-module';
     CustomerWorkoutsComponent,
     CustomerWorkoutExercisesComponent,
     AddCustomerWorkoutDialogComponent,
+    PostCardComponent,
   ],
   imports: [
     AppRoutingModule,

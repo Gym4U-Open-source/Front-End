@@ -90,7 +90,7 @@
 <!-- Sidebar Tailwind -->
 <div
   class="fixed z-20 bg-white border-r-[1px] border-[#E6E6E6] h-screen duration-500"
-  [ngClass]="{ 'w-[270px]': open, 'w-0 lg:w-[50px]': !open }"
+  [ngClass]="{ 'w-[270px]': open, 'w-0 translate-x-[-50px] lg:translate-x-0 lg:w-[50px]': !open }"
 >
   <div
     *ngFor="let opt of options"
@@ -118,7 +118,7 @@
 <!-- Main content -->
 <div
   [ngClass]="{ 'pl-0 lg:pl-[270px]': open, 'pl-0 lg:pl-[50px]': !open }"
-  class="duration-500 px-4 absolute"
+  class="duration-500 px-1 md:px-4 absolute top-[40.3px] md:top-[47px] xl:top-[51px] w-full bg-[#fafafa] min-h-screen"
 >
   <router-outlet></router-outlet>
 </div>
