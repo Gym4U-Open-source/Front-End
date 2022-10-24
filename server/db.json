@@ -22,6 +22,19 @@
       "username": "Breydi-01",
       "password": "Xyoyu157",
       "id": 5
+    },
+    {
+      "person": {
+        "name": "Breydi",
+        "lastName": "Ramos Terrones",
+        "email": "ogreydi123@gmail.com",
+        "id": 1666655396222
+      },
+      "role": "COACH",
+      "focus": "OWNER",
+      "username": "Breydi-01",
+      "password": "Xyoyu157",
+      "id": 6
     }
   ],
   "signupUser": [

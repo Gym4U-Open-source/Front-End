@@ -14,21 +14,21 @@
       <div>
         <mat-form-field class="form-items" appearance="outline">
           <mat-label>Name</mat-label>
-          <input formControlName="name" matInput placeholder="Name" />
+          <input formControlName="name" required matInput placeholder="Name" />
           <mat-hint>Enter your name</mat-hint>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="form-items" appearance="outline">
           <mat-label>Last Name</mat-label>
-          <input formControlName="lastName" matInput placeholder="Last Name" />
+          <input formControlName="lastName" required matInput placeholder="Last Name" />
           <mat-hint>Enter your Last name</mat-hint>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="form-items" appearance="outline">
           <mat-label>Email</mat-label>
-          <input formControlName="email" matInput placeholder="Email" />
+          <input formControlName="email" required matInput placeholder="Email" />
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-hint>Enter your Email</mat-hint>
         </mat-form-field>
@@ -68,6 +68,7 @@
           formControlName="username"
           matInput
           placeholder="Username"
+          required
         />
         <mat-hint>Enter your username</mat-hint>
       </mat-form-field>
@@ -80,6 +81,7 @@
           formControlName="password"
           matInput
           placeholder="Password"
+          required
         />
         <mat-icon matSuffix>visibility_off</mat-icon>
         <mat-hint>Enter your password</mat-hint>
