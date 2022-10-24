@@ -1,6 +1,6 @@
 <!-- Toolbar Tailwind -->
 <div
-  class="fixed z-10 flex w-full justify-between items-center py-[5px] border-b-[1px] border-[#E6E6E6] bg-white duration-500"
+  class="fixed z-10 flex w-full justify-between items-center py-[5px] border-b-[1px] border-[#E6E6E6] bg-white duration-500 font-baloo2"
   [ngClass]="{ 'pl-[270px]': open, 'pl-0 lg:pl-[50px]': !open }"
 >
   <!-- Menu -->
@@ -24,9 +24,13 @@
     class="w-[80%] xl:w-[60%] flex items-center pr-1"
     [ngClass]="{ 'hidden md:flex': open, flex: !open }"
   >
-    <mat-icon class="absolute ml-5 text-[#888888]">search</mat-icon>
+    <div class="hidden md:block">
+      <mat-icon class="ml-5 top-[12px] text-[#888888] absolute"
+        >search</mat-icon
+      >
+    </div>
     <input
-      class="bg-[#F3F3F3] text-16 w-full pl-[60px] py-[6px] rounded-lg"
+      class="bg-[#F3F3F3] text-16 w-full pl-4 md:pl-[60px] py-[6px] rounded-lg"
       type="text"
       placeholder="Look for posts of your interest ..."
       [formControl]="control"
@@ -44,7 +48,7 @@
 
   <!-- Options -->
   <div>
-    <div *ngIf="!userData.loggedIn" class="md:pr-5 pr-1">
+    <div *ngIf="!userData.loggedIn" class="2xl:pr-5 xl:block hidden">
       <button mat-stroked-button routerLink="/signin" class="btn btn-signIn">
         Sign in
       </button>
@@ -61,12 +65,12 @@
 
   <!-- Profile -->
   <div class="lg:flex items-center text-[#909090] md:pr-5 pr-1 hidden">
-    <mat-icon>notifications</mat-icon>
     <div
       class="flex items-center cursor-pointer"
       *ngIf="userData.loggedIn"
       [matMenuTriggerFor]="appMenu"
     >
+      <mat-icon>notifications</mat-icon>
       <mat-icon>keyboard_arrow_down</mat-icon>
       <img
         mat-card-image
@@ -90,7 +94,10 @@
 <!-- Sidebar Tailwind -->
 <div
   class="fixed z-20 bg-white border-r-[1px] border-[#E6E6E6] h-screen duration-500"
-  [ngClass]="{ 'w-[270px]': open, 'w-0 translate-x-[-50px] lg:translate-x-0 lg:w-[50px]': !open }"
+  [ngClass]="{
+    'w-[270px]': open,
+    'w-0 translate-x-[-50px] lg:translate-x-0 lg:w-[50px]': !open
+  }"
 >
   <div
     *ngFor="let opt of options"
@@ -118,7 +125,7 @@
 <!-- Main content -->
 <div
   [ngClass]="{ 'pl-0 lg:pl-[270px]': open, 'pl-0 lg:pl-[50px]': !open }"
-  class="duration-500 px-1 md:px-4 absolute top-[40.3px] md:top-[47px] xl:top-[51px] w-full bg-[#fafafa] min-h-screen"
+  class="duration-500 px-1 md:px-4 absolute top-[40.3px] md:top-[47px] xl:top-[47px] w-full bg-[#fafafa] min-h-screen"
 >
   <router-outlet></router-outlet>
 </div>

@@ -1,9 +1,13 @@
+import { FormControl, FormGroup } from '@angular/forms';
+import { Focus } from './focus.model';
+import { Person } from './person.model';
+import { Role } from './role.model';
+
 export interface User {
-  id: number;
-  name: string;
-  lastName: string;
-  email: string;
-  userType: string;
-  coachFocus: string;
-  password: string;
+  id?: FormControl<number>;
+  person?: FormGroup<Person>;
+  role?: FormControl<Role>;
+  focus?: FormControl<Focus>;
+  username: FormControl<string>;
+  password: FormControl<string>;
 }
