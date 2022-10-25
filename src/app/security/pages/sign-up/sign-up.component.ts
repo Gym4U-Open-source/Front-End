@@ -39,15 +39,6 @@ export class SignUpComponent implements OnInit {
     private api: UserService
   ) {}
 
-  private createForm(model: Person): FormGroup {
-    return this.formBuilder.group(model);
-  }
-
-  //private updateForm(user: Partial<User>): void {
-  //  console.log('UPDATE');
-  //  this.userForm.patchValue(user);
-  //}
-
   ngOnInit(): void {}
 
   signUp() {

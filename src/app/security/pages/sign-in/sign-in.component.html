@@ -1,17 +1,17 @@
 <div class="container font-baloo2">
   <div class="form-container">
     <div class="">
-      <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-top">
+      <form [formGroup]="userForm" (ngSubmit)="login()" class="form-top">
         <div class="">
           <h3 class="hint">Login</h3>
           <h1 class="tile-l">Gym4U</h1>
         </div>
         <p>
           <mat-form-field class="form-items" appearance="outline">
-            <mat-label>Email</mat-label>
-            <input formControlName="email" matInput placeholder="Email" />
+            <mat-label>Username</mat-label>
+            <input formControlName="username" matInput placeholder="Username" required/>
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>Enter your email registered</mat-hint>
+            <mat-hint>Type your username</mat-hint>
           </mat-form-field>
         </p>
         <p>
@@ -24,7 +24,7 @@
               placeholder="Password"
             />
             <mat-icon matSuffix>visibility_off</mat-icon>
-            <mat-hint>Enter your password</mat-hint>
+            <mat-hint>Type your password</mat-hint>
           </mat-form-field>
         </p>
         <p class="hint">

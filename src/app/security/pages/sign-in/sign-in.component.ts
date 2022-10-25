@@ -1,32 +1,25 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
   private userData!: any;
-  public loginForm!: FormGroup;
   public loading: boolean = false;
+  public userForm = new FormGroup<User>({
+    username: new FormControl(),
+    password: new FormControl(),
+  });
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private http: HttpClient,
-    private router: Router,
-    private api: UserService
-  ) {}
+  constructor(private router: Router, private api: UserService) {}
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: [''],
-      password: [''],
-    });
-
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     if (this.userData.loggedIn) {
       this.router.navigate(['/']);
@@ -35,30 +28,33 @@ export class SignInComponent implements OnInit {
 
   login() {
     this.loading = true;
-    this.api.getUsers().subscribe({
-      next: (res) => {
-        const user = res.find((a: any) => {
-          return (
-            a.email === this.loginForm.value.email &&
-            a.password === this.loginForm.value.password
-          );
-        });
-        if (user) {
-          console.log('Login Success');
-          this.loading = false
-          this.loginForm.reset();
-          let _ = { loggedIn: true, data: user };
-          localStorage.setItem('user', JSON.stringify(_));
-          window.location.reload();
-        } else {
-          console.log('User not found !!');
+
+    if (this.userForm.valid) {
+      this.api.getUsers().subscribe({
+        next: (res) => {
+          const user = res.find((element) => {
+            return (
+              element.username === this.userForm.get('username')?.value &&
+              element.password === this.userForm.get('password')?.value
+            );
+          });
+          if (user) {
+            console.log('Login Success');
+            localStorage.setItem(
+              'user',
+              JSON.stringify({ loggedIn: true, data: user })
+            );
+            window.location.reload();
+          } else {
+            console.log('User not found !!');
+            this.loading = false;
+          }
+        },
+        error: () => {
           this.loading = false;
-        }
-      },
-      error: (err) => {
-        this.loading = false;
-        console.log('Something went wrong !!');
-      },
-    });
+          console.log('Something went wrong !!');
+        },
+      });
+    }
   }
 }

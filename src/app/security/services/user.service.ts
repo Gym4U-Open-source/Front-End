@@ -19,6 +19,6 @@ export class UserService extends BaseService {
   }
 
   getUsers(): Observable<Array<User>> {
-    return this.http.get<any>(this.BASE_URL);
+    return this.http.get<Array<User>>(this.BASE_URL);
   }
 }

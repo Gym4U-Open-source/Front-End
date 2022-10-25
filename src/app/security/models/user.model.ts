@@ -8,6 +8,6 @@ export interface User {
   person?: FormGroup<Person>;
   role?: FormControl<Role>;
   focus?: FormControl<Focus>;
-  username: FormControl<string>;
-  password: FormControl<string>;
+  username?: FormControl<string>;
+  password?: FormControl<string>;
 }

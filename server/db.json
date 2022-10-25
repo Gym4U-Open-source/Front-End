@@ -1,79 +1,17 @@
 {
   "users": [
     {
-      "name": "Breydi",
-      "lastName": "Ramos Terrones",
-      "role": "COACH",
-      "focus": "OWNER",
-      "email": "ogreydi123@gmail.com",
-      "username": "BREYDI01",
-      "password": "Xyoyu157",
-      "id": 1
-    },
-    {
       "person": {
         "name": "Breydi",
         "lastName": "Ramos Terrones",
         "email": "ogreydi123@gmail.com",
-        "id": null
+        "id": 1666661589152
       },
       "role": "COACH",
       "focus": "OWNER",
       "username": "Breydi-01",
       "password": "Xyoyu157",
-      "id": 5
-    },
-    {
-      "person": {
-        "name": "Breydi",
-        "lastName": "Ramos Terrones",
-        "email": "ogreydi123@gmail.com",
-        "id": 1666655396222
-      },
-      "role": "COACH",
-      "focus": "OWNER",
-      "username": "Breydi-01",
-      "password": "Xyoyu157",
-      "id": 6
-    }
-  ],
-  "signupUser": [
-    {
-      "name": "Breydi",
-      "lastName": "Ramos Terrones",
-      "userType": "normalUser",
-      "coachFocus": "",
-      "email": "ogreydi123@gmail.com",
-      "password": "Xyoyu157",
       "id": 1
-    },
-    {
-      "name": "Smith",
-      "lastName": "Ramos Terrones",
-      "userType": "coachUser",
-      "coachFocus": "personalTrainer",
-      "email": "smith@gmail.com",
-      "password": "Xyoyu157",
-      "id": 2
-    },
-    {
-      "name": "Maskota",
-      "lastName": "Perro Gato",
-      "userType": "coachUser",
-      "coachFocus": "gymManager",
-      "email": "perroGato@bezkoder.com",
-      "password": "Xyoyu157",
-      "id": 3
-    },
-    {
-      "name": "Breydi",
-      "lastName": "Ramos Terrones",
-      "role": "COACH",
-      "focus": "OWNER",
-      "email": "ogreydi123@gmail.com",
-      "username": "BREYDI01",
-      "password": "Xyoyu157",
-      "id": 4
     }
   ],
   "exercises": [
