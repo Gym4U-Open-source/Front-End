@@ -1,4 +1,42 @@
 {
+  "users": [
+    {
+      "name": "Breydi",
+      "lastName": "Ramos Terrones",
+      "role": "COACH",
+      "focus": "OWNER",
+      "email": "ogreydi123@gmail.com",
+      "username": "BREYDI01",
+      "password": "Xyoyu157",
+      "id": 1
+    },
+    {
+      "person": {
+        "name": "Breydi",
+        "lastName": "Ramos Terrones",
+        "email": "ogreydi123@gmail.com",
+        "id": null
+      },
+      "role": "COACH",
+      "focus": "OWNER",
+      "username": "Breydi-01",
+      "password": "Xyoyu157",
+      "id": 5
+    },
+    {
+      "person": {
+        "name": "Breydi",
+        "lastName": "Ramos Terrones",
+        "email": "ogreydi123@gmail.com",
+        "id": 1666655396222
+      },
+      "role": "COACH",
+      "focus": "OWNER",
+      "username": "Breydi-01",
+      "password": "Xyoyu157",
+      "id": 6
+    }
+  ],
   "signupUser": [
     {
       "name": "Breydi",
@@ -26,6 +64,16 @@
       "email": "perroGato@bezkoder.com",
       "password": "Xyoyu157",
       "id": 3
+    },
+    {
+      "name": "Breydi",
+      "lastName": "Ramos Terrones",
+      "role": "COACH",
+      "focus": "OWNER",
+      "email": "ogreydi123@gmail.com",
+      "username": "BREYDI01",
+      "password": "Xyoyu157",
+      "id": 4
     }
   ],
   "exercises": [
@@ -98,12 +146,12 @@
     },
     {
       "image_post": "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1198&q=80",
-      "post_description": "safaafafafafafaf",
+      "post_description": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali",
       "id": 6
     },
     {
       "image_post": "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
-      "post_description": "asfasfasf",
+      "post_description": "Lo imposible no un hecho, es una opinión. Imposible no es una declaración es un reto. Lo imposible es algo teórico, temporal. Imposible no existe nada – Muhammad Ali",
       "id": 7
     }
   ],
@@ -122,6 +170,334 @@
       "id": 2,
       "id_post": 1,
       "description": "fasfkjashfkjhakjfhkjafhkjasfhkjafshkjafhs"
+    }
+  ],
+  "workouts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Workout for men",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 4,
+      "updateAt": "2022-07-23T18:25:43.511Z",
+      "tag": "noob",
+      "owner": "Nikita Sirmitev"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Workout for women",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 4,
+      "updateAt": "2022-09-23T18:25:43.511Z",
+      "tag": "advance",
+      "owner": "maria nolpenki"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "Workout for You!",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 15,
+      "updateAt": "2022-08-23T18:25:43.511Z",
+      "tag": "noob",
+      "owner": "Angel Deus"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "title": "Workout for Strong men",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 2,
+      "updateAt": "2022-09-23T18:25:43.511Z",
+      "tag": "advance",
+      "owner": "Clinder Gomez"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "title": "Workout for Strong men",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "exercises": 2,
+      "updateAt": "2022-08-23T18:25:43.511Z",
+      "tag": "noob",
+      "owner": "Marcos"
+    }
+  ],
+  "exerciseInstruction": [
+    {
+      "id": 1,
+      "exercise": {
+        "id": 1,
+        "userId": 1,
+        "category": "strength",
+        "focus": "arms",
+        "tag": "principiante",
+        "name": "Planchas",
+        "custom": true,
+        "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+      },
+      "name": "Planchas",
+      "sets": 3,
+      "timePerSet": 30,
+      "status": "Pending"
+    },
+    {
+      "id": 2,
+      "exercise": {
+        "name": "Reverse Plank Leg Raises",
+        "category": "Strength",
+        "tag": "Avanzado",
+        "focus": "Piernas",
+        "assetUrl": "https://i.pinimg.com/originals/37/18/cc/3718cce716d6575a5704156befcd1f07.gif",
+        "custom": "true",
+        "id": 4
+      },
+      "name": "Reverse Plank Leg Raises",
+      "sets": 3,
+      "timePerSet": 60,
+      "status": "Pending"
+    }
+  ],
+  "workout": [
+    {
+      "id": 1,
+      "name": "Cardio",
+      "exercises": [
+        {
+          "id": 1,
+          "exercise": {
+            "id": 1,
+            "userId": 1,
+            "category": "strength",
+            "focus": "arms",
+            "tag": "principiante",
+            "name": "Planchas",
+            "custom": true,
+            "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+          },
+          "name": "Planchas",
+          "sets": 3,
+          "timePerSet": 30,
+          "status": "Pending",
+          "date": "28/11/2022"
+        },
+        {
+          "id": 2,
+          "exercise": {
+            "name": "Reverse Plank Leg Raises",
+            "category": "Strength",
+            "tag": "Avanzado",
+            "focus": "Piernas",
+            "assetUrl": "https://i.pinimg.com/originals/37/18/cc/3718cce716d6575a5704156befcd1f07.gif",
+            "custom": "true",
+            "id": 4
+          },
+          "name": "Reverse Plank Leg Raises",
+          "sets": 3,
+          "timePerSet": 60,
+          "status": "Pending",
+          "date": "28/11/2022"
+        }
+      ],
+      "status": "Pending",
+      "date": "28/11/2022"
+    },
+    {
+      "id": 2,
+      "name": "Cardio Extremo",
+      "exercises": [
+        {
+          "id": 1,
+          "exercise": {
+            "id": 1,
+            "userId": 1,
+            "category": "strength",
+            "focus": "arms",
+            "tag": "principiante",
+            "name": "Planchas",
+            "custom": true,
+            "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+          },
+          "sets": 3,
+          "timePerSet": 30,
+          "status": "Pending",
+          "date": "28/11/2022"
+        }
+      ],
+      "status": "Pending",
+      "date": "28/11/2022"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Juan Pablo",
+      "lastName": "Palacios",
+      "email": "JuanP@gmail.com",
+      "workouts": [
+        {
+          "id": 1,
+          "name": "Cardio",
+          "exercises": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            },
+            {
+              "id": 2,
+              "exercise": {
+                "name": "Reverse Plank Leg Raises",
+                "category": "Strength",
+                "tag": "Avanzado",
+                "focus": "Piernas",
+                "assetUrl": "https://i.pinimg.com/originals/37/18/cc/3718cce716d6575a5704156befcd1f07.gif",
+                "custom": "true",
+                "id": 4
+              },
+              "sets": 3,
+              "timePerSet": 60
+            }
+          ],
+          "status": "Pending",
+          "date": "28/11/2022"
+        },
+        {
+          "id": 0,
+          "date": "2022-10-11T05:00:00.000Z",
+          "name": "Puta",
+          "workout": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            }
+          ],
+          "status": "Pending"
+        }
+      ]
+    },
+    {
+      "name": "name 1",
+      "lastName": "lastName 1",
+      "email": "email 2",
+      "id": 2
+    },
+    {
+      "name": "Juan Manuel",
+      "lastName": "Palacios ",
+      "email": "JMP@gmail.com",
+      "workouts": [
+        {
+          "id": 0,
+          "date": "2022-10-18T05:00:00.000Z",
+          "name": "Puta",
+          "workout": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            }
+          ],
+          "status": "Pending"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "ihiu",
+      "lastName": "juon",
+      "email": "uon",
+      "workouts": [
+        {
+          "id": 0,
+          "date": "2022-10-25T05:00:00.000Z",
+          "name": "Puta",
+          "workout": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            }
+          ],
+          "status": "Pending"
+        },
+        {
+          "id": 0,
+          "date": "2022-10-18T05:00:00.000Z",
+          "name": null,
+          "workout": [
+            {
+              "id": 1,
+              "exercise": {
+                "id": 1,
+                "userId": 1,
+                "category": "strength",
+                "focus": "arms",
+                "tag": "principiante",
+                "name": "Planchas",
+                "custom": true,
+                "assetUrl": "https://i.pinimg.com/originals/6a/b6/c3/6ab6c3120fc3b1fc83151e26f6d49216.gif"
+              },
+              "sets": 3,
+              "timePerSet": 30,
+              "status": "Pending",
+              "date": "28/11/2022"
+            }
+          ],
+          "status": "Pending"
+        }
+      ],
+      "id": 5
     }
   ]
 }

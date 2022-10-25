@@ -1,14 +1,14 @@
 {
   "targets": {
-    "gym4u-v1": {
+    "gym-v3": {
       "hosting": {
         "Front-End": [
-          "gym4u-v1"
+          "gym-v3"
         ]
       }
     }
   },
   "projects": {
-    "default": "gym4u-v1"
+    "default": "gym-v3"
   }
 }

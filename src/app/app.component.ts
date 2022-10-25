@@ -11,6 +11,37 @@ import { startWith, map } from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  // Toolbar Options
+  open: boolean = true;
+  options: any = [
+    { title: 'Posts', icon: 'photo_filter', link: 'posts', isActive: false },
+    {
+      title: 'Customers',
+      icon: 'person_outline',
+      link: 'customers',
+      isActive: false,
+    },
+    {
+      title: 'Inbox',
+      icon: 'chat_bubble_outline',
+      link: 'inbox',
+      isActive: false,
+    },
+    {
+      title: 'Exercises',
+      icon: 'fitness_center',
+      link: 'exercises',
+      gap: true,
+      isActive: false,
+    },
+    {
+      title: 'Workouts',
+      icon: 'grid_on',
+      link: 'workouts',
+      isActive: false,
+    },
+  ];
+
   title = 'Front-End';
   control = new FormControl('');
   streets: string[] = [
@@ -22,7 +53,7 @@ export class AppComponent implements OnInit {
   filteredStreets!: Observable<string[]>;
   userData!: any;
 
-  @ViewChild('sidenav', {static: true}) public sidenav!: MatSidenav
+  @ViewChild('sidenav', { static: true }) public sidenav!: MatSidenav;
 
   constructor(private router: Router) {}
 
@@ -35,7 +66,7 @@ export class AppComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(this.userData);
 
-    this.router.navigate(["/home"])
+    this.router.navigate(['/home']);
   }
 
   private _filter(value: string): string[] {
@@ -51,14 +82,24 @@ export class AppComponent implements OnInit {
 
   logout() {
     console.log('logout');
-    //--set localStorage
     let _tmp = { loggedIn: false, data: {} };
     localStorage.setItem('user', JSON.stringify(_tmp));
     window.location.reload();
   }
 
   sidenavOptionSelect(route: string) {
-    this.sidenav.close()
-    this.router.navigate([`/${route}`])
+    this.options.forEach((element: any, index: number) => {
+      if (this.options[index].isActive === true) {
+        this.options[index].isActive = false;
+      }
+      if (element.title === route) {
+        this.options[index].isActive = true;
+      }
+    });
+    console.log(this.options);
+  }
+
+  setOpen() {
+    this.open = !this.open;
   }
 }

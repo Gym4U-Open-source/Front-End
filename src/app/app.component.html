@@ -1,20 +1,38 @@
-<mat-toolbar>
-  <button mat-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <img
-    mat-card-image
-    routerLink="/home"
-    src="https://i.ibb.co/WWXTnGH/logo.png"
-    alt="Gym4U"
-    class="logo"
-  />
-  <span class="spacer"></span>
-  <div class="browser">
-    <mat-icon>search</mat-icon>
+<!-- Toolbar Tailwind -->
+<div
+  class="fixed z-10 flex w-full justify-between items-center py-[5px] border-b-[1px] border-[#E6E6E6] bg-white duration-500 font-baloo2"
+  [ngClass]="{ 'pl-[270px]': open, 'pl-0 lg:pl-[50px]': !open }"
+>
+  <!-- Menu -->
+  <div class="flex items-center gap-0 lg:gap-2 md:pl-5 pl-1">
+    <mat-icon
+      (click)="setOpen()"
+      class="cursor-pointer text-[20px] md:text-[23px]"
+      >menu</mat-icon
+    >
+    <img
+      mat-card-image
+      routerLink="/home"
+      src="https://i.ibb.co/WWXTnGH/logo.png"
+      alt="Gym4U"
+      class="w-[50px] md:w-[60px] cursor-pointer"
+    />
+  </div>
+
+  <!-- Browser -->
+  <div
+    class="w-[80%] xl:w-[60%] flex items-center pr-1"
+    [ngClass]="{ 'hidden md:flex': open, flex: !open }"
+  >
+    <div class="hidden md:block">
+      <mat-icon class="ml-5 top-[12px] text-[#888888] absolute"
+        >search</mat-icon
+      >
+    </div>
     <input
+      class="bg-[#F3F3F3] text-16 w-full pl-4 md:pl-[60px] py-[6px] rounded-lg"
       type="text"
-      placeholder="Look for posts  ..."
+      placeholder="Look for posts of your interest ..."
       [formControl]="control"
       [matAutocomplete]="auto"
     />
@@ -27,68 +45,87 @@
       </mat-option>
     </mat-autocomplete>
   </div>
-  <span class="spacer"></span>
-  <div *ngIf="!userData.loggedIn">
-    <button mat-stroked-button routerLink="/login" class="btn btn-signIn">
-      Sign in
-    </button>
-    <button
-      mat-flat-button
-      routerLink="/signup"
-      color="primary"
-      class="btn btn-signUp"
+
+  <!-- Options -->
+  <div>
+    <div *ngIf="!userData.loggedIn" class="2xl:pr-5 xl:block hidden">
+      <button mat-stroked-button routerLink="/signin" class="btn btn-signIn">
+        Sign in
+      </button>
+      <button
+        mat-flat-button
+        routerLink="/signup"
+        color="primary"
+        class="btn btn-signUp"
       >
-      Sign up
-    </button>
-  </div>
-  <span class="spacer-profile"></span>
-  <div class="profile" *ngIf="userData.loggedIn" [matMenuTriggerFor]="appMenu">
-    <mat-icon>keyboard_arrow_down</mat-icon>
-    <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU" alt="Profile" class="image">
-    <div class="data">
-      {{ userData.data.name }} {{ userData.data.lastName }}<br />
-      <span class="role">{{ userData.data.userType }}</span>
+        Sign up
+      </button>
     </div>
   </div>
-</mat-toolbar>
 
-<mat-menu #appMenu="matMenu">
-  <button mat-menu-item>Profile</button>
-  <button mat-menu-item>Help</button>
-  <button (click)="logout()" mat-menu-item>Log out</button>
-</mat-menu>
+  <!-- Profile -->
+  <div class="lg:flex items-center text-[#909090] md:pr-5 pr-1 hidden">
+    <div
+      class="flex items-center cursor-pointer"
+      *ngIf="userData.loggedIn"
+      [matMenuTriggerFor]="appMenu"
+    >
+      <mat-icon>notifications</mat-icon>
+      <mat-icon>keyboard_arrow_down</mat-icon>
+      <img
+        mat-card-image
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU"
+        alt="Profile"
+        class="w-[36px] h-[36px] rounded-full"
+      />
+      <div class="ml-2 text-black font-medium hidden xl:block">
+        {{ userData.data.name }} {{ userData.data.lastName }}<br />
+        <span class="text-[#909090]">{{ userData.data.userType }}</span>
+      </div>
+    </div>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>Help</button>
+      <button (click)="logout()" mat-menu-item>Log out</button>
+    </mat-menu>
+  </div>
+</div>
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav>
-    <mat-nav-list *ngIf="userData.loggedIn">
-      <mat-list-item class="item-profile">
-        <div class="profile">
-          <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU" alt="Profile" class="image">
-          <div class="data">
-            {{ userData.data.name }} {{ userData.data.lastName }}<br />
-            <span class="role">{{ userData.data.userType }}</span>
-          </div>
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </div>
-      </mat-list-item>
-      <mat-list-item (click)="sidenavOptionSelect('customers')">Customers</mat-list-item>
-      <mat-list-item (click)="sidenavOptionSelect('')">Inbox</mat-list-item>
-      <mat-list-item (click)="sidenavOptionSelect('exercises')">Exercises</mat-list-item>
-      <mat-list-item (click)="sidenavOptionSelect('')">Workouts</mat-list-item>
-      <mat-list-item (click)="sidenavOptionSelect('posts')">Comunity</mat-list-item>
-      <mat-list-item (click)="logout()">Logout</mat-list-item>
-    </mat-nav-list>
-    <mat-nav-list *ngIf="!userData.loggedIn">
-      <mat-list-item (click)="sidenavOptionSelect('home')">Home</mat-list-item>
-      <mat-list-item (click)="sidenavOptionSelect('login')"
-        >Sign in</mat-list-item
-      >
-      <mat-list-item (click)="sidenavOptionSelect('signup')"
-        >Sign up</mat-list-item
-      >
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<!-- Sidebar Tailwind -->
+<div
+  class="fixed z-20 bg-white border-r-[1px] border-[#E6E6E6] h-screen duration-500"
+  [ngClass]="{
+    'w-[270px]': open,
+    'w-0 translate-x-[-50px] lg:translate-x-0 lg:w-[50px]': !open
+  }"
+>
+  <div
+    *ngFor="let opt of options"
+    class="px-1 cursor-pointer"
+    (click)="sidenavOptionSelect(opt.title)"
+    [routerLink]="opt.link"
+    [ngClass]="{
+      'bg-[#2b84b2] text-white': opt.isActive,
+      'text-[#454545]': !opt.isActive
+    }"
+  >
+    <mat-list-item class="item-profile"> </mat-list-item>
+    <div
+      class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
+      [ngClass]="{ 'mt-6': opt.gap }"
+    >
+      <mat-icon class="ml-2">{{ opt.icon }}</mat-icon>
+      <div class="font-medium" [ngClass]="{ hidden: !open, block: open }">
+        {{ opt.title }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div
+  [ngClass]="{ 'pl-0 lg:pl-[270px]': open, 'pl-0 lg:pl-[50px]': !open }"
+  class="duration-500 px-1 md:px-4 absolute top-[40.3px] md:top-[47px] xl:top-[47px] w-full bg-[#fafafa] min-h-screen"
+>
+  <router-outlet></router-outlet>
+</div>
