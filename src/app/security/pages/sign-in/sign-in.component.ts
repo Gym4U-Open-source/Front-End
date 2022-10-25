@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit {
     if (this.userForm.valid) {
       this.api.getUsers().subscribe({
         next: (res) => {
-          const user = res.find((element) => {
+          const user = res.find((element: User) => {
             return (
               element.username === this.userForm.get('username')?.value &&
               element.password === this.userForm.get('password')?.value
@@ -56,5 +56,6 @@ export class SignInComponent implements OnInit {
         },
       });
     }
+    this.loading = false;
   }
 }

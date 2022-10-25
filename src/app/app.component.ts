@@ -14,32 +14,43 @@ export class AppComponent implements OnInit {
   // Toolbar Options
   open: boolean = true;
   options: any = [
-    { title: 'Posts', icon: 'photo_filter', link: 'posts', isActive: false },
-    {
-      title: 'Customers',
-      icon: 'person_outline',
-      link: 'customers',
-      isActive: false,
-    },
-    {
-      title: 'Inbox',
-      icon: 'chat_bubble_outline',
-      link: 'inbox',
-      isActive: false,
-    },
-    {
-      title: 'Exercises',
-      icon: 'fitness_center',
-      link: 'exercises',
-      gap: true,
-      isActive: false,
-    },
-    {
-      title: 'Workouts',
-      icon: 'grid_on',
-      link: 'workouts',
-      isActive: false,
-    },
+    [
+      { title: 'Posts', icon: 'photo_filter', link: 'posts', isActive: false },
+      {
+        title: 'Customers',
+        icon: 'person_outline',
+        link: 'customers',
+        isActive: false,
+      },
+      {
+        title: 'Inbox',
+        icon: 'chat_bubble_outline',
+        link: 'inbox',
+        isActive: false,
+      },
+      {
+        title: 'Exercises',
+        icon: 'fitness_center',
+        link: 'exercises',
+        gap: true,
+        isActive: false,
+      },
+      {
+        title: 'Workouts',
+        icon: 'grid_on',
+        link: 'workouts',
+        isActive: false,
+      },
+      {
+        title: 'Logo out',
+        icon: 'power_settings_new',
+        isActive: false,
+      },
+    ],
+    [
+      { title: 'signin', icon: 'input', link: 'signin', isActive: false },
+      { title: 'signup', icon: 'line_style', link: 'signup', isActive: false },
+    ],
   ];
 
   title = 'Front-End';
@@ -87,16 +98,19 @@ export class AppComponent implements OnInit {
     window.location.reload();
   }
 
-  sidenavOptionSelect(route: string) {
-    this.options.forEach((element: any, index: number) => {
-      if (this.options[index].isActive === true) {
-        this.options[index].isActive = false;
-      }
-      if (element.title === route) {
-        this.options[index].isActive = true;
-      }
+  setActive(route: string) {
+    this.options.forEach((element: any, i: number) => {
+      element.forEach((element: any, j: number) => {
+        if (this.options[i][j].isActive === true) {
+          this.options[i][j].isActive = false;
+        }
+        if (element.title === route) {
+          this.options[i][j].isActive = true;
+        }
+        console.log(element);
+      });
     });
-    console.log(this.options);
+    if (window.innerWidth < 1024) this.setOpen();
   }
 
   setOpen() {
