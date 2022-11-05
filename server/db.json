@@ -12,6 +12,19 @@
       "username": "Breydi-01",
       "password": "Xyoyu157",
       "id": 1
+    },
+    {
+      "person": {
+        "name": "Breydi",
+        "lastName": "ASD",
+        "email": "QEQWD",
+        "id": 1667618251917
+      },
+      "role": "NORMAL",
+      "focus": "TO_TRAIN",
+      "username": "Breydi-01",
+      "password": "Xyoyu157",
+      "id": 2
     }
   ],
   "exercises": [
