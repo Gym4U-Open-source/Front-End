@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // PAGES
 import { PostsComponent } from './comunity/models/posts/posts.component';
+import { ChatBoxComponent } from './comunity/pages/chat-box/chat-box.component';
 import { ExercisesComponent } from './fitness/pages/exercises/exercises.component';
 import { WorkoutsComponent } from './fitness/pages/workouts/workouts.component';
 import { CustomerWorkoutExercisesComponent } from './profiles/pages/customer-workout-exercises/customer-workout-exercises.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'exercises', component: ExercisesComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'workouts', component: WorkoutsComponent },
+  { path: 'inbox', component: ChatBoxComponent },
 
   // DEFAULT ROUTES
   { path: '', component: HomeComponent },
