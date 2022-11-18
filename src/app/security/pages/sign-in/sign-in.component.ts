@@ -30,29 +30,15 @@ export class SignInComponent implements OnInit {
     this.loading = true;
 
     if (this.userForm.valid) {
-      this.api.getUsers().subscribe({
+      this.api.getUsers(this.userForm.value).subscribe({
         next: (res) => {
-          const user = res.find((element: User) => {
-            return (
-              element.username === this.userForm.get('username')?.value &&
-              element.password === this.userForm.get('password')?.value
-            );
-          });
-          if (user) {
-            console.log('Login Success');
-            localStorage.setItem(
-              'user',
-              JSON.stringify({ loggedIn: true, data: user })
-            );
-            window.location.reload();
-          } else {
-            console.log('User not found !!');
-            this.loading = false;
-          }
+          console.log(res.resource)
+          localStorage.setItem('user', JSON.stringify({ loggedIn: true, data: res.resource }))
+          window.location.reload()
         },
-        error: () => {
+        error: (err) => {
           this.loading = false;
-          console.log('Something went wrong !!');
+          console.log(err);
         },
       });
     }

@@ -15,10 +15,10 @@ export class UserService extends BaseService {
   }
 
   postUser(data: FormGroup<User>): Observable<FormGroup<User>> {
-    return this.http.post<FormGroup<User>>(this.BASE_URL, data.value);
+    return this.http.post<FormGroup<User>>(`${this.BASE_URL}auth/sign-up`, data.value);
   }
 
-  getUsers(): Observable<Array<User>> {
-    return this.http.get<Array<User>>(this.BASE_URL);
+  getUsers(data: any): Observable<any> {
+    return this.http.post<Array<User>>(`${this.BASE_URL}auth/sign-in`, data);
   }
 }
