@@ -15,18 +15,21 @@ export class AppComponent implements OnInit {
   open: boolean = true;
   options: any = [
     [
-      { title: 'Posts', icon: 'photo_filter', link: 'posts', isActive: false },
+      { title: 'Posts', icon: 'photo_filter', link: 'posts', isActive: false,
+        role: 1 },
       {
         title: 'Customers',
         icon: 'person_outline',
         link: 'customers',
         isActive: false,
+        role: 2
       },
       {
         title: 'Inbox',
         icon: 'chat_bubble_outline',
         link: 'inbox',
         isActive: false,
+        role: 1
       },
       {
         title: 'Exercises',
@@ -34,17 +37,20 @@ export class AppComponent implements OnInit {
         link: 'exercises',
         gap: true,
         isActive: false,
+        role: 2
       },
       {
         title: 'Workouts',
         icon: 'grid_on',
         link: 'workouts',
         isActive: false,
+        role: 1
       },
       {
         title: 'Logo out',
         icon: 'power_settings_new',
         isActive: false,
+        role: 2
       },
     ],
     [
@@ -75,8 +81,9 @@ export class AppComponent implements OnInit {
     );
 
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log(this.userData);
-
+    console.log('USER ON APP: ', this.userData);
+    //console.log(this.userData.data.roles.length)
+    console.log(this.options[0][0].role)
     this.router.navigate(['/home']);
   }
 

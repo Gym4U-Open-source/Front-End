@@ -21,6 +21,7 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    console.log('USER ON INIT: ', this.userData);
     if (this.userData.loggedIn) {
       this.router.navigate(['/']);
     }
@@ -34,6 +35,7 @@ export class SignInComponent implements OnInit {
         next: (res) => {
           console.log(res.resource)
           localStorage.setItem('user', JSON.stringify({ loggedIn: true, data: res.resource }))
+          localStorage.setItem('token', JSON.stringify(res.resource.token))
           window.location.reload()
         },
         error: (err) => {
