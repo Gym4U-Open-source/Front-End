@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
 import { ExercisesComponent } from './fitness/pages/exercises/exercises.component';
 import { AddExerciseDialogComponent } from './fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
@@ -31,6 +31,7 @@ import { HomeComponent } from './public/pages/home/home.component';
 // ROUTES
 import { AppRoutingModule } from './app-routing-module';
 import { PostCardComponent } from './comunity/components/post-card/post-card.component';
+import { InterceptorService } from './shared/services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,9 @@ import { PostCardComponent } from './comunity/components/post-card/post-card.com
     MatDialogModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

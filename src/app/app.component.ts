@@ -15,21 +15,26 @@ export class AppComponent implements OnInit {
   open: boolean = true;
   options: any = [
     [
-      { title: 'Posts', icon: 'photo_filter', link: 'posts', isActive: false,
-        role: 1 },
+      {
+        title: 'Posts',
+        icon: 'photo_filter',
+        link: 'posts',
+        isActive: false,
+        role: ['COACH', 'NORMAL'],
+      },
       {
         title: 'Customers',
         icon: 'person_outline',
         link: 'customers',
         isActive: false,
-        role: 2
+        role: ['COACH'],
       },
       {
         title: 'Inbox',
         icon: 'chat_bubble_outline',
         link: 'inbox',
         isActive: false,
-        role: 1
+        role: ['COACH', 'NORMAL'],
       },
       {
         title: 'Exercises',
@@ -37,20 +42,20 @@ export class AppComponent implements OnInit {
         link: 'exercises',
         gap: true,
         isActive: false,
-        role: 2
+        role: ['COACH'],
       },
       {
         title: 'Workouts',
         icon: 'grid_on',
         link: 'workouts',
         isActive: false,
-        role: 1
+        role: ["COACH", "NORMAL"],
       },
       {
         title: 'Logo out',
         icon: 'power_settings_new',
         isActive: false,
-        role: 2
+        role: ["COACH", "NORMAL"],
       },
     ],
     [
@@ -83,7 +88,7 @@ export class AppComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     console.log('USER ON APP: ', this.userData);
     //console.log(this.userData.data.roles.length)
-    console.log(this.options[0][0].role)
+    console.log(this.options[0][0].role);
     this.router.navigate(['/home']);
   }
 

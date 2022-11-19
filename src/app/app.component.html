@@ -81,7 +81,8 @@
         *ngIf="userData.loggedIn"
         class="ml-2 text-black font-medium hidden xl:block"
       >
-        Breydi Ramos Terrones<br />
+        {{ userData.data.profile.name }} {{ userData.data.profile.lastName
+        }}<br />
         <span class="text-[#909090]">{{ userData.data.roles[0] }}</span>
       </div>
     </div>
@@ -125,7 +126,8 @@
     />
     <div class="flex" [ngClass]="{ block: open, hidden: !open }">
       <div class="ml-2 text-black font-medium mr-2">
-        Breydi Ramos Terrones<br />
+        {{ userData.data.profile.name }} {{ userData.data.profile.lastName
+        }}<br />
         <span class="text-[#909090]">{{ userData.data.roles[0] }}</span>
       </div>
       <mat-icon>play_arrow</mat-icon>
@@ -140,65 +142,51 @@
       (click)="opt.title !== 'Logo out' ? setActive(opt.title) : logout()"
       [routerLink]="opt.link"
     >
-      <mat-list-item class="item-profile"> </mat-list-item>
-      <div *ngIf="userData.loggedIn && userData.data.roles.length === 2">
-      <div
-        *ngIf="userData.data.roles.length === 1"
-        class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
-        [ngClass]="{
-          'mt-6': opt.gap,
-          'bg-[#2b84b2] text-white': opt.isActive,
-          'text-[#454545]': !opt.isActive,
-          'absolute bottom-6 hover:bg-white': opt.title === 'Logo out'
-        }"
-      >
-        <mat-icon class="ml-2">{{ opt.icon }}</mat-icon>
-        <div class="font-medium" [ngClass]="{ hidden: !open, block: open }">
-          {{ opt.title }}
-        </div>
-      </div>
-        <div
-          *ngIf="userData.data.roles.length === 2"
-          class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
-          [ngClass]="{
-          'mt-6': opt.gap,
-          'bg-[#2b84b2] text-white': opt.isActive,
-          'text-[#454545]': !opt.isActive,
-          'absolute bottom-6 hover:bg-white': opt.title === 'Logo out'
-        }"
+      <ng-container *ngIf="userData.loggedIn; else logOut">
+        <ng-container
+          *ngIf="opt.role.length === 2 && userData.data.roles[0] === 'NORMAL'"
         >
-          <mat-icon class="ml-2">{{ opt.icon }}</mat-icon>
-          <div class="font-medium" [ngClass]="{ hidden: !open, block: open }">
-            {{ opt.title }}
+          <div
+            class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
+            [ngClass]="{
+              'mt-6': opt.gap,
+              'bg-[#2b84b2] text-white': opt.isActive,
+              'text-[#454545]': !opt.isActive,
+              'absolute bottom-6 hover:bg-white': opt.title === 'Logo out'
+            }"
+          >
+            <mat-icon class="ml-2">{{ opt.icon }}</mat-icon>
+            <div class="font-medium" [ngClass]="{ hidden: !open, block: open }">
+              {{ opt.title }}
+            </div>
           </div>
-        </div>
-      </div>
-      <div *ngIf="userData.loggedIn && userData.data.roles.length === 1; else signOut">
+        </ng-container>
+        <ng-container *ngIf="userData.data.roles[0] === 'COACH'">
+          <div
+            class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
+            [ngClass]="{
+              'mt-6': opt.gap,
+              'bg-[#2b84b2] text-white': opt.isActive,
+              'text-[#454545]': !opt.isActive,
+              'absolute bottom-6 hover:bg-white': opt.title === 'Logo out'
+            }"
+          >
+            <mat-icon class="ml-2">{{ opt.icon }}</mat-icon>
+            <div class="font-medium" [ngClass]="{ hidden: !open, block: open }">
+              {{ opt.title }}
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #logOut>
         <div
-          *ngIf="userData.data.roles.length === 1"
           class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
           [ngClass]="{
-          'mt-6': opt.gap,
-          'bg-[#2b84b2] text-white': opt.isActive,
-          'text-[#454545]': !opt.isActive,
-          'absolute bottom-6 hover:bg-white': opt.title === 'Logo out'
-        }"
-        >
-          <mat-icon class="ml-2">{{ opt.icon }}</mat-icon>
-          <div class="font-medium" [ngClass]="{ hidden: !open, block: open }">
-            {{ opt.title }}
-          </div>
-        </div>
-      </div>
-      <ng-template #signOut>
-        <div
-          class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
-          [ngClass]="{
-          'mt-6': opt.gap,
-          'bg-[#2b84b2] text-white': opt.isActive,
-          'text-[#454545]': !opt.isActive,
-          'absolute bottom-6 hover:bg-white': opt.title === 'Logo out'
-        }"
+            'mt-6': opt.gap,
+            'bg-[#2b84b2] text-white': opt.isActive,
+            'text-[#454545]': !opt.isActive,
+            'absolute bottom-6 hover:bg-white': opt.title === 'Logo out'
+          }"
         >
           <mat-icon class="ml-2">{{ opt.icon }}</mat-icon>
           <div class="font-medium" [ngClass]="{ hidden: !open, block: open }">
@@ -213,7 +201,7 @@
 <!-- Main content -->
 <div
   [ngClass]="{ 'pl-0 lg:pl-[270px]': open, 'pl-0 lg:pl-[50px]': !open }"
-  class="duration-500 px-1 md:px-4 absolute top-[40.3px] md:top-[47px] xl:top-[47px] w-full bg-[#fafafa]"
+  class="duration-500 px-1 md:px-4 absolute top-[40.3px] md:top-[47px] xl:top-[47px] w-full h-[100vh] bg-[#fafafa]"
 >
   <router-outlet></router-outlet>
 </div>

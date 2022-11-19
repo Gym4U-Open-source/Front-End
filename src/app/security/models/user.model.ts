@@ -7,7 +7,7 @@ export interface User {
   id?: FormControl<number>;
   person?: FormGroup<Person>;
   role?: FormControl<Role>;
-  focus?: FormControl<Focus>;
+  email?: FormControl<string>;
   username?: FormControl<string>;
   password?: FormControl<string>;
 }
