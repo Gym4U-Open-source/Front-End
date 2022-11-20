@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // PAGES
-import { PostsComponent } from './comunity/models/posts/posts.component';
+import { PostsComponent } from './comunity/pages/posts/posts.component';
 import { ChatBoxComponent } from './comunity/pages/chat-box/chat-box.component';
 import { ExercisesComponent } from './fitness/pages/exercises/exercises.component';
 import { WorkoutsComponent } from './fitness/pages/workouts/workouts.component';
@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'workouts', component: WorkoutsComponent },
   { path: 'inbox', component: ChatBoxComponent },
 
-  // DEFAULT ROUTES
+  // DEFAULT ROUTE
   { path: '', component: HomeComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
