@@ -16,4 +16,9 @@ export class FallowerService extends BaseService {
     // http://localhost:8080/api/v1/users/2/followers
     return this.http.get<any>(`${this.BASE_URL}/users/${userId}/followers`);
   }
+
+  getUserFollow(userId: number): Observable<any> {
+    // http://localhost:8080/api/v1/users/2/followers
+    return this.http.get<any>(`${this.BASE_URL}/users/${userId}/followers/follow`);
+  }
 }
