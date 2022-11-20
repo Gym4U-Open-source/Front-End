@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {NgForm} from "@angular/forms";
 import {MatPaginator} from "@angular/material/paginator";
@@ -29,6 +29,7 @@ export interface Tile {
 })
 
 export class CustomerWorkoutsComponent implements OnInit {
+  @Output() triggerEvent:EventEmitter<any> = new EventEmitter();
 
   workoutsClientData: CustomerProfile;
   dataSource: MatTableDataSource<any>;
@@ -80,6 +81,12 @@ export class CustomerWorkoutsComponent implements OnInit {
       this.dataSource.data = response.workouts;
       this.name = response.name + ' ' + response.lastName;
     });
+  }
+
+  dataUut(){
+    console.log(this.triggerEvent);
+    this.workoutCustomerService
+
   }
 
   openDialog() {

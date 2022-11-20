@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Post } from '../../models/post';
 import { ViewPostCommentsComponent } from '../view-post-comments/view-post-comments.component';
+import {Profile} from "../../models/profiles";
+import {PostsService} from "../../services/posts.service";
 
 @Component({
   selector: 'app-post-card',
@@ -10,12 +12,29 @@ import { ViewPostCommentsComponent } from '../view-post-comments/view-post-comme
 })
 export class PostCardComponent implements OnInit {
   @Input() post!: Post;
+  profile!:Profile;
 
-  constructor(private dialog: MatDialog) {}
+  profileId!: number;
+
+  constructor(private dialog: MatDialog, private postsService: PostsService) {
+
+  }
 
   viewPostComments() {
     this.dialog.open(ViewPostCommentsComponent);
   }
 
-  ngOnInit(): void {}
+  getProfileName(){
+    this.profileId = this.post.profileId;
+    this.postsService.getProfileById(this.profileId).subscribe((response: any) => {
+      this.profile = response;
+    });
+
+  }
+
+
+  ngOnInit(): void {
+    this.getProfileName();
+  }
 }
+

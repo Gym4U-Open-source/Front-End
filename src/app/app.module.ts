@@ -11,7 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from 'src/material.module';
 import { ExercisesComponent } from './fitness/pages/exercises/exercises.component';
 import { AddExerciseDialogComponent } from './fitness/pages/components/add-exercise-dialog/add-exercise-dialog.component';
-import { PostsComponent } from './comunity/models/posts/posts.component';
+import { PostsComponent } from './comunity/pages/posts/posts.component';
 import { CustomersComponent } from './profiles/pages/customers/customers.component';
 import { AddCustomerDialogComponent } from './profiles/components/add-customer-dialog/add-customer-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -32,6 +32,7 @@ import { HomeComponent } from './public/pages/home/home.component';
 import { AppRoutingModule } from './app-routing-module';
 import { PostCardComponent } from './comunity/components/post-card/post-card.component';
 import { InterceptorService } from './shared/services/interceptor.service';
+import { PostHomeCardComponent } from './public/components/post-home-card/post-home-card.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { InterceptorService } from './shared/services/interceptor.service';
     CustomerWorkoutExercisesComponent,
     AddCustomerWorkoutDialogComponent,
     PostCardComponent,
+    PostHomeCardComponent,
   ],
   imports: [
     AppRoutingModule,
