@@ -11,6 +11,7 @@ import { FallowerService } from '../../services/fallower.service';
 export class ChatBoxComponent implements OnInit {
   userData!: any;
   followers!: any;
+  userCommunication!: any;
 
   constructor(
     private chatService: ChatService,
@@ -39,12 +40,14 @@ export class ChatBoxComponent implements OnInit {
       .toPromise()
       .then((res) => {
         this.followers = res.content;
+        this.userCommunication = this.followers[0].normalUser;
       })
       .catch((err) => {
         console.log(err);
       });
 
-    console.log('USER FOLLOWERS: ', this.followers[0]);
+    console.log('USER FOLLOWERS: ', this.followers);
+    console.log('USER COMMUNICATION: ', this.userCommunication);
   }
 
   generateRandomString(num: number) {
@@ -53,9 +56,7 @@ export class ChatBoxComponent implements OnInit {
     let result = ' ';
     const charactersLength = characters.length;
     for (let i = 0; i < num; i++) {
-      result += characters.charAt(
-        Math.floor(Math.random() * charactersLength)
-      );
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
 
     return result;
