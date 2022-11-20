@@ -83,7 +83,7 @@
       >
         {{ userData.data.profile.name }} {{ userData.data.profile.lastName
         }}<br />
-        <span class="text-[#909090]">{{ userData.data.roles[0] }}</span>
+        <span class="text-[#909090]">{{ userData.data.user.roles[0] }}</span>
       </div>
     </div>
     <mat-menu #appMenu="matMenu">
@@ -128,7 +128,7 @@
       <div class="ml-2 text-black font-medium mr-2">
         {{ userData.data.profile.name }} {{ userData.data.profile.lastName
         }}<br />
-        <span class="text-[#909090]">{{ userData.data.roles[0] }}</span>
+        <span class="text-[#909090]">{{ userData.data.user.roles[0] }}</span>
       </div>
       <mat-icon>play_arrow</mat-icon>
     </div>
@@ -144,7 +144,7 @@
     >
       <ng-container *ngIf="userData.loggedIn; else logOut">
         <ng-container
-          *ngIf="opt.role.length === 2 && userData.data.roles[0] === 'NORMAL'"
+          *ngIf="opt.role.length === 2 && userData.data.user.roles[0] === 'NORMAL'"
         >
           <div
             class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
@@ -161,7 +161,7 @@
             </div>
           </div>
         </ng-container>
-        <ng-container *ngIf="userData.data.roles[0] === 'COACH'">
+        <ng-container *ngIf="userData.data.user.roles[0] === 'COACH'">
           <div
             class="flex items-center gap-2 py-2 hover:bg-gray-200 rounded-sm"
             [ngClass]="{

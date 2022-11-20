@@ -119,7 +119,6 @@ export class AppComponent implements OnInit {
         if (element.title === route) {
           this.options[i][j].isActive = true;
         }
-        console.log(element);
       });
     });
     if (window.innerWidth < 1024) this.setOpen();

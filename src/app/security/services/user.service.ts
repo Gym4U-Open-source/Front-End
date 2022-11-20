@@ -25,7 +25,7 @@ export class UserService extends BaseService {
     return this.http.post<any>(this.BASE_URL + 'auth/sign-up', data);
   }
 
-  getUsers(data: any): Observable<any> {
+  signIn(data: any): Observable<any> {
     return this.http.post<Array<User>>(`${this.BASE_URL}auth/sign-in`, data);
   }
 }

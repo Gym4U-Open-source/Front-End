@@ -41,11 +41,10 @@ export class SignUpComponent implements OnInit {
     private profileService: ProfileService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
-  signUp() {
+  async signUp() {
     if (this.userForm.valid) {
-      //console.log(this.userForm.value.)
       let userData = {
         username: this.userForm.value.username,
         password: this.userForm.value.password,
@@ -58,34 +57,35 @@ export class SignUpComponent implements OnInit {
         lastName: this.userForm.value.person?.lastName,
       };
 
-      this.api.signUp(userData).subscribe({
-        next: (res) => {
-          console.log(res);
+      await this.api
+        .signUp(userData)
+        .toPromise()
+        .then((res) => {
           if (res.success) {
-            localStorage.setItem(
-              'user',
-              JSON.stringify({ loggedIn: true, data: res.resource })
-            );
             localStorage.setItem('token', JSON.stringify(res.resource.token));
-
-            this.profileService.postProfile(profileData).subscribe({
-              next: (res) => {
-                console.log('Sign up successfull');
-              },
-              error: (err) => {
-                console.log('PROFILE ERROR: ', err);
-              },
-            });
           }
-          //console.log('Sign Up successful !!');
-          //this.userForm.reset();
-          //this.router.navigate(['signin']);
-        },
-        error: (err) => {
+        })
+        .catch((err) => {
           console.log('Something went wrong !!', err.error);
           this.errorMessage = err.error;
-        },
-      });
+        });
+
+      await this.profileService
+        .postProfile(profileData)
+        .toPromise()
+        .then((res) => {
+          console.log(res);
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      let token = localStorage.getItem('token');
+      if (token) {
+        localStorage.removeItem('token');
+        this.router.navigate(['/signin']);
+      }
     }
   }
 }
