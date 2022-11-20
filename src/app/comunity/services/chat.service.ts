@@ -11,6 +11,6 @@ export class ChatService extends BaseService {
   constructor(http: HttpClient) {
     super(http);
 
-    this.BASE_URL += "messages/"
+    this.BASE_URL += 'messages/';
   }
 }
