@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, retry, throwError} from "rxjs";
 import {CustomerProfile} from "../model/customer-profile";
@@ -59,4 +59,5 @@ export class CustomersService {
   updateCustomer(data: any, id: number) {
     return this.http.put<any>(this.basePath + id, data);
   }
+
 }

@@ -13,13 +13,13 @@ import {Profile} from "../../models/profiles";
   styleUrls: ['./add-post-dialog.component.css']
 })
 export class AddPostDialogComponent implements OnInit {
-  postData!: Post;
-  postForm!: FormGroup;
-  post!:Post;
-  profile!:Profile;
-  dataSource!: MatTableDataSource<any>;
 
-  profileId!: number;
+  postForm!: FormGroup;
+  @Input() post!:Post;
+  profile!:Profile;
+  auxProfile!:any;
+
+  //profileId!: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,26 +27,31 @@ export class AddPostDialogComponent implements OnInit {
               private matDialogRef: MatDialogRef<AddPostDialogComponent>,
      @Inject(MAT_DIALOG_DATA) public editData:any
   ) {
-  //  this.profileId = this.editData.profileId;
+
   }
 
   ngOnInit(): void {
     this.postForm = this.formBuilder.group({
-      profileId:[0,Validators.required],
       title:['',Validators.required],
       description: ['',Validators.required],
       urlImage: ['',Validators.required],
     })
-
+   // this.profile = localStorage.getItem("user");
+    this.auxProfile=JSON.parse(localStorage.getItem("user")|| '{}');
+    this.profile = this.auxProfile.data.profile;
   }
 
   add() {
+
+    console.log(this.auxProfile)
+    console.log( this.profile)
     //console.log(this.editData.profileId + 'holaaaaaaaaaaaaaaaa');
+    //this.profileId = this.post.profileId;
     if (this.postForm.valid) {
-      this.postsService.addPost(this.postForm.value)
+      this.postsService.addPost(this.profile.id,this.postForm.value)
         .subscribe({
           next: (res) => {
-            console.log("note created successfully")
+            console.log("Post created successfully")
             this.postForm.reset();
             this.matDialogRef.close('save');
           },
@@ -56,6 +61,8 @@ export class AddPostDialogComponent implements OnInit {
         })
     }
   }
+
+
 
 
 }

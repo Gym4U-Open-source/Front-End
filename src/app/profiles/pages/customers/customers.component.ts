@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {CustomerProfile} from "../../model/customer-profile";
 import {MatTableDataSource} from "@angular/material/table";
 import {NgForm} from "@angular/forms";

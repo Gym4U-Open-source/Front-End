@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -23,8 +23,8 @@ export class PostsService extends BaseService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  addPost(data: Post) {
-    return this.http.post<Post>(`${this.BASE_URL}posts/create-post/`, data);
+  addPost(id:any,data: Post) {
+    return this.http.post<Post>(`${this.BASE_URL}posts/create-post/${id}`, data);
   }
 
   getAllComments(): Observable<Post> {
