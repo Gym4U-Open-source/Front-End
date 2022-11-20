@@ -25,6 +25,7 @@ export class AddCustomerDialogComponent implements OnInit {
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
+      workouts: [[]],
     });
 
     console.log(this.editData);
@@ -34,10 +35,11 @@ export class AddCustomerDialogComponent implements OnInit {
       this.customerForm.controls['lastName'].setValue(this.editData.lastName);
       this.customerForm.controls['email'].setValue(this.editData.email);
     }
+
   }
 
   addCustomer() {
-    if (!this.editData) {
+    if(!this.editData) {
       if (this.customerForm.valid) {
         this.api.postCustomer(this.customerForm.value).subscribe({
           next: (res) => {

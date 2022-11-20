@@ -10,7 +10,7 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class BaseService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'http://localhost:8080/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({

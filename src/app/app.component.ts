@@ -11,6 +11,59 @@ import { startWith, map } from 'rxjs/operators';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  // Toolbar Options
+  open: boolean = true;
+  options: any = [
+    [
+      {
+        title: 'Posts',
+        icon: 'photo_filter',
+        link: 'posts',
+        isActive: false,
+        role: ['COACH', 'NORMAL'],
+      },
+      {
+        title: 'Customers',
+        icon: 'person_outline',
+        link: 'customers',
+        isActive: false,
+        role: ['COACH'],
+      },
+      {
+        title: 'Inbox',
+        icon: 'chat_bubble_outline',
+        link: 'inbox',
+        isActive: false,
+        role: ['COACH', 'NORMAL'],
+      },
+      {
+        title: 'Exercises',
+        icon: 'fitness_center',
+        link: 'exercises',
+        gap: true,
+        isActive: false,
+        role: ['COACH'],
+      },
+      {
+        title: 'Workouts',
+        icon: 'grid_on',
+        link: 'workouts',
+        isActive: false,
+        role: ["COACH", "NORMAL"],
+      },
+      {
+        title: 'Logo out',
+        icon: 'power_settings_new',
+        isActive: false,
+        role: ["COACH", "NORMAL"],
+      },
+    ],
+    [
+      { title: 'signin', icon: 'input', link: 'signin', isActive: false },
+      { title: 'signup', icon: 'line_style', link: 'signup', isActive: false },
+    ],
+  ];
+
   title = 'Front-End';
   control = new FormControl('');
   streets: string[] = [
@@ -22,7 +75,7 @@ export class AppComponent implements OnInit {
   filteredStreets!: Observable<string[]>;
   userData!: any;
 
-  @ViewChild('sidenav', {static: true}) public sidenav!: MatSidenav
+  @ViewChild('sidenav', { static: true }) public sidenav!: MatSidenav;
 
   constructor(private router: Router) {}
 
@@ -33,9 +86,10 @@ export class AppComponent implements OnInit {
     );
 
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log(this.userData);
-
-    this.router.navigate(["/home"])
+    console.log('USER ON APP: ', this.userData);
+    //console.log(this.userData.data.roles.length)
+    console.log(this.options[0][0].role);
+    this.router.navigate(['/home']);
   }
 
   private _filter(value: string): string[] {
@@ -51,14 +105,26 @@ export class AppComponent implements OnInit {
 
   logout() {
     console.log('logout');
-    //--set localStorage
     let _tmp = { loggedIn: false, data: {} };
     localStorage.setItem('user', JSON.stringify(_tmp));
     window.location.reload();
   }
 
-  sidenavOptionSelect(route: string) {
-    this.sidenav.close()
-    this.router.navigate([`/${route}`])
+  setActive(route: string) {
+    this.options.forEach((element: any, i: number) => {
+      element.forEach((element: any, j: number) => {
+        if (this.options[i][j].isActive === true) {
+          this.options[i][j].isActive = false;
+        }
+        if (element.title === route) {
+          this.options[i][j].isActive = true;
+        }
+      });
+    });
+    if (window.innerWidth < 1024) this.setOpen();
+  }
+
+  setOpen() {
+    this.open = !this.open;
   }
 }
