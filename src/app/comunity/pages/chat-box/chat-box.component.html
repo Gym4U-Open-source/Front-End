@@ -1,40 +1,24 @@
 <div class="flex justify-between w-full h-[92vh]">
-  <div class="w-fit xl:w-[22%] border-r-[1px] border-gray-300">
-    <div class="flex items-center pt-12">
+  <!-- FOLLOWERS CHAT -->
+  <div
+    *ngIf="userData.data.user.roles[0] === 'COACH'"
+    class="w-fit xl:w-[22%] border-r-[1px] border-gray-300"
+  >
+    <div *ngFor="let follower of followers" class="flex items-center pt-12">
       <div
         class="my-2 mx-4 p-3 bg-blue-500 rounded-full font-medium text-white"
       >
-        BR
+        {{ generateRandomString(2) }}
       </div>
       <div class="ml-2 text-gray-600 font-medium hidden xl:block">
-        Breydi Ramos Terrones<br />
-        <span class="text-[#909090]">Cuando unas elenas ...</span>
+        {{ follower.normalUser.username }}<br />
+        <span class="text-[#909090]">{{ follower.normalUser.email }}</span>
       </div>
     </div>
-    <mat-divider></mat-divider>
-    <div class="flex items-center">
-      <div class="my-2 mx-4 p-3 bg-red-500 rounded-full font-medium text-white">
-        BR
-      </div>
-      <div class="ml-2 text-gray-600 font-medium hidden xl:block">
-        Breydi Ramos Terrones<br />
-        <span class="text-[#909090]">Cuando unas elenas ...</span>
-      </div>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="flex items-center">
-      <div
-        class="my-2 mx-4 p-3 bg-green-500 rounded-full font-medium text-white"
-      >
-        BR
-      </div>
-      <div class="ml-2 text-gray-600 font-medium hidden xl:block">
-        Breydi Ramos Terrones<br />
-        <span class="text-[#909090]">Cuando unas elenas ...</span>
-      </div>
-    </div>
-    <mat-divider></mat-divider>
+    <!--<mat-divider></mat-divider>-->
   </div>
+
+  <!-- MESSAGES -->
   <div class="500 w-full xl:w-[56%] text-gray-500">
     <div class="px-2 sm:px-8 flex flex-col">
       <span class="py-12 text-[26px] font-medium]">Breydi Ramos Terrones</span>
@@ -69,7 +53,7 @@
         <p class="text-end">lkjasd</p>
       </div>
       <div class="right-0 w-full mt-12">
-          <mat-icon class="absolute ml-4 mt-3">subdirectory_arrow_right</mat-icon>
+        <mat-icon class="absolute ml-4 mt-3">subdirectory_arrow_right</mat-icon>
         <input
           type="text"
           class="p-3 w-full border-[1px] border-gray-300 rounded-md px-12"
@@ -77,6 +61,8 @@
       </div>
     </div>
   </div>
+
+  <!-- PROFILE -->
   <div
     class="w-[22%] hidden lg:flex lg:flex-col pt-20 gap-4 border-l-[1px] border-gray-300"
   >

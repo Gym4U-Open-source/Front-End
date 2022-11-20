@@ -49,13 +49,13 @@ export class AppComponent implements OnInit {
         icon: 'grid_on',
         link: 'workouts',
         isActive: false,
-        role: ["COACH", "NORMAL"],
+        role: ['COACH', 'NORMAL'],
       },
       {
         title: 'Logo out',
         icon: 'power_settings_new',
         isActive: false,
-        role: ["COACH", "NORMAL"],
+        role: ['COACH', 'NORMAL'],
       },
     ],
     [
@@ -86,9 +86,6 @@ export class AppComponent implements OnInit {
     );
 
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log('USER ON APP: ', this.userData);
-    //console.log(this.userData.data.roles.length)
-    console.log(this.options[0][0].role);
     this.router.navigate(['/home']);
   }
 

@@ -10,6 +10,7 @@ import { FallowerService } from '../../services/fallower.service';
 })
 export class ChatBoxComponent implements OnInit {
   userData!: any;
+  followers!: any;
 
   constructor(
     private chatService: ChatService,
@@ -21,7 +22,42 @@ export class ChatBoxComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem('user') || '');
 
     if (this.userData === '') {
-      this.router.navigate(['/signin'])
+      this.router.navigate(['/signin']);
     }
+
+    if (this.userData.data.user.roles[0] === 'COACH') {
+      this.getUserFollowers();
+    }
+
+    //console.log(this.userData);
+    //console.log('USER FOLLOWERS: ', this.followers);
+  }
+
+  async getUserFollowers() {
+    await this.followersService
+      .getUserFollowers(this.userData.data.user.id)
+      .toPromise()
+      .then((res) => {
+        this.followers = res.content;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    console.log('USER FOLLOWERS: ', this.followers[0]);
+  }
+
+  generateRandomString(num: number) {
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = ' ';
+    const charactersLength = characters.length;
+    for (let i = 0; i < num; i++) {
+      result += characters.charAt(
+        Math.floor(Math.random() * charactersLength)
+      );
+    }
+
+    return result;
   }
 }
