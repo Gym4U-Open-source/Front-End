@@ -17,11 +17,10 @@ export class ExercisesComponent implements OnInit {
   totalData!: number;
 
   displayedColumns: string[] = [
-    'Exerxises',
+    'Exercises',
     'Tags',
     'Primary Focus',
     'Category',
-    'Custom',
     'Actions'
   ];
   dataSource!: MatTableDataSource<any>;
@@ -60,7 +59,8 @@ export class ExercisesComponent implements OnInit {
   getAllProducts() {
     this.api.getProduct().subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+        console.log(res.content);
+        this.dataSource = new MatTableDataSource(res.content);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.totalData = res.length

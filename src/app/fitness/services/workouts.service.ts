@@ -10,7 +10,7 @@ import { ExerciseInstruction, Workout } from '../models/workout.model';
 export class WorkoutsService extends BaseService {
   constructor(http: HttpClient) {
     super(http);
-    this.BASE_URL += '/workouts/';
+    this.BASE_URL += '/workouts';
   }
 
   // BASE PATH
@@ -23,11 +23,11 @@ export class WorkoutsService extends BaseService {
   }
 
   updateWorkout(data: any, id: number) {
-    return this.http.put<any>(this.BASE_URL + id, data);
+    return this.http.put<any>(`${this.BASE_URL}/${id}`, data);
   }
 
   deleteWorkout(id: number) {
-    return this.http.delete<any>(this.BASE_URL + id);
+    return this.http.delete<any>(`${this.BASE_URL}/${id}`);
   }
 
   // PATH 1

@@ -38,7 +38,6 @@ export class AddExerciseDialogComponent implements OnInit {
       this.exerciseForm.controls['tag'].setValue(this.editData.tag);
       this.exerciseForm.controls['focus'].setValue(this.editData.focus);
       this.exerciseForm.controls['assetUrl'].setValue(this.editData.assetUrl);
-      this.exerciseForm.controls['custom'].setValue(this.editData.custom);
     }
   }
 

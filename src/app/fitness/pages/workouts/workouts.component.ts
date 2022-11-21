@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { WorkoutsService } from '../../services/workouts.service';
+import {AddWorkoutDialogComponent} from "../components/add-workout-dialog/add-workout-dialog.component";
 
 @Component({
   selector: 'app-workouts',
@@ -36,6 +37,20 @@ export class WorkoutsComponent implements OnInit {
   ngOnInit(): void {
     this.getAllWorkouts();
   }
+
+  openDialog() {
+    this.dialog
+      .open(AddWorkoutDialogComponent, {
+        width: '432px',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllWorkouts();
+        }
+      });
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -47,7 +62,7 @@ export class WorkoutsComponent implements OnInit {
   getAllWorkouts() {
     this.api.getWorkout().subscribe({
       next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
+        this.dataSource = new MatTableDataSource(res.content);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.totalData = res.length;
@@ -57,4 +72,31 @@ export class WorkoutsComponent implements OnInit {
       },
     });
   }
+
+  editWorkout(row: any) {
+    this.dialog
+      .open(AddWorkoutDialogComponent, {
+        width: '432px',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'update') {
+          this.getAllWorkouts();
+        }
+      });
+  }
+
+  deleteWorkout(id: number) {
+    this.api.deleteWorkout(id).subscribe({
+      next: (res) => {
+        console.log('Workout deleted successfully.');
+        this.getAllWorkouts();
+      },
+      error: (err) => {
+        console.log('Something went while deleting');
+      },
+    });
+  }
+
 }

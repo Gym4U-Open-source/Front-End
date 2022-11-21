@@ -33,6 +33,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { PostCardComponent } from './comunity/components/post-card/post-card.component';
 import { InterceptorService } from './shared/services/interceptor.service';
 import { PostHomeCardComponent } from './public/components/post-home-card/post-home-card.component';
+import { AddWorkoutDialogComponent } from './fitness/pages/components/add-workout-dialog/add-workout-dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { PostHomeCardComponent } from './public/components/post-home-card/post-h
     AddCustomerWorkoutDialogComponent,
     PostCardComponent,
     PostHomeCardComponent,
+    AddWorkoutDialogComponent,
   ],
   imports: [
     AppRoutingModule,

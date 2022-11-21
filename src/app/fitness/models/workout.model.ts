@@ -13,12 +13,11 @@ export interface ExerciseInstruction {
 export interface Workout {
   id: number;
   userId: number;
-  title: string;
+  name: string;
   content: string;
   tag: string;
   updateAt: Date;
   owner: string;
-  name?: string;
   exercises?: ExerciseInstruction[];
   status?: string;
   date?: Date;

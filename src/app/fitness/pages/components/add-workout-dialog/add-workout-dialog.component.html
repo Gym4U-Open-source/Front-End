@@ -1,17 +1,13 @@
 <h1 mat-dialog-title>Add New Exercise</h1>
 <div mat-dialog-content>
-  <form [formGroup]="exerciseForm">
+  <form [formGroup]="workoutForm">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input formControlName="name" matInput placeholder="Placeholder" />
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Category</mat-label>
-      <mat-select formControlName="category" placeholder="Category">
-        <mat-option value="Strength">Strength</mat-option>
-        <mat-option value="Bodyweight">Bodyweight</mat-option>
-        <mat-option value="Timed">Timed</mat-option>
-      </mat-select>
+      <mat-label>Content</mat-label>
+      <input formControlName="content" matInput placeholder="Placeholder" />
     </mat-form-field>
     <label for=""><h1>Tag</h1></label>
     <mat-radio-group formControlName="tag" class="example-radio-group">
@@ -23,18 +19,10 @@
         {{ fresh }}
       </mat-radio-button>
     </mat-radio-group>
+
     <mat-form-field appearance="outline">
-      <mat-label>Primary Focus</mat-label>
-      <input
-        formControlName="focus"
-        matInput
-        type="text"
-        placeholder="Placeholder"
-      />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>URL gift</mat-label>
-      <textarea formControlName="assetUrl" matInput></textarea>
+      <mat-label>Owner</mat-label>
+      <textarea formControlName="owner" matInput></textarea>
     </mat-form-field>
   </form>
 </div>
@@ -44,7 +32,7 @@
     style="margin-left: 8px"
     mat-raised-button
     color="primary"
-    (click)="addProduct()"
+    (click)="addWorkout()"
   >
     {{ actionBtn }}
   </button>
